@@ -1,0 +1,13 @@
+@ <head> 태그
+-> <head> ~ </head>
+-> 머리란 의미로써 html이 정상적인 동작을 하기전 
+	가장 먼저 진행하는 내용을 작성하는 곳 
+
+@ <meta> 태그
+-> 헤더 내부에서 사용하는 태그로써 메타 데이터라는 뜻으로 html 문서가 가지고 있는
+    유용한 정보를 담아 두는 곳, 문서 정보를 검색 엔진에 전달.
+※문자셋 설정 : <meta charset = "UTF-8">
+※웹 페이지에 대한 설명 : <meta name = "description" content = "설명설명">
+※검색 엔진에 대한 키워드 : <meta name = "keywords" content = "HTML,CSS 설명">
+※페이지 작성자 : <meta name="author" content = "Noh MinSoo">
+※30초 마다 문서 새로 고침 : <meta http-equiv="refresh" content="30">
