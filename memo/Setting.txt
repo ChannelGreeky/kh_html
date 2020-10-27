@@ -1,0 +1,16 @@
+@이클립스 워크스페이스 새로 생성
+
+@브라켓 설치
+
+@ Setting (한번에 6개 맞출거임 (이후 과정의 세팅까지))
+1. 새로운 워크스페이스로 이클립스 연다.
+2. 우측 상단 환경 선택 (Java)
+3. 상단 메뉴 Window -> Show View -> Navigator와 Project Explorer
+4. 상단 메뉴 Window -> Preferences -> General -> Workspace -> Text file encoding에서 Other선택 후 UTF-8로 변경
+5. 상단 메뉴 Window -> Preferences -> General -> Editor -> Text Editors -> Spelling 에서 Other선택 후 UTF-8로 변경
+6. 상단 메뉴 Window -> Preferences -> JSON -> JSON Files 의 Encoding방식 ISO 10646/Unicode(UTF-8) 로 변경 
+7. 상단 메뉴 Window -> Preferences -> Web -> CSS Files의 Encoding 방식 ISO 10646/Unicode(UTF-8) 로 변경
+8. 상단 메뉴 Window -> Preferences -> Web -> HTML Files의 Encoding 방식 ISO 10646/Unicode(UTF-8) 로 변경
+9. 상단 메뉴 Window -> Preferences -> Web -> JSP Files의 Encoding 방식 ISO 10646/Unicode(UTF-8) 로 변경
+
+@브라켓에서 워크스페이스의 WebContent폴더 열기
