@@ -1,0 +1,263 @@
+------------------------------------- 폼 태그 --------------------------------
+@<form> </form>
+-> 사용자가 입력한 data를 보내는 방식과 처리할 페이지를 정하는 태그
+-> 혼자서 쓰이지 않으며, input 태그들과 함께 쓰임
+
+속성
+
+method	: get방식과 post 방식 설정
+	※get 방식
+	- URL 창을 통하여 데이터를 보내는 방식
+	- data 크기에 제한이 있음 (256 ~ 4096 Byte)
+	- data가 눈으로 보임
+	(그렇기 때문에 로그인 처리는 get방식으로 구현하면 안됨)
+get방식을 사용하는 이유 : 자원(URL)의 재활용을 위하여 get방식을 사용함
+
+	※post 방식
+	- http header 안에 포함하여 보내는 방식
+	- data 크기에 제한이 없음
+	- data를 쉽게 볼 수 없음 (기술적으로만 볼 수 있음)
+추가적으로 암호화통신(https)으로 보안성을 높인다.
+
+name		: <form> 태그의 고유 이름 지정, <fom>을 구분하기 위해 사용
+action		: 데이터를 처리할 페이지를 지정
+target		: action 속성의 페이지를 어떻게 열것인가를 지정(새창, 현재창)
+autocomplete	: 이전 입력내용을 출력하는 기능, 생략하면 자동으로 출력 (default 값)
+		※ 자동 저장 기능 이라고 생각 하면 됨
+		form에 autocomplete를 지정하면 form에 속해있는 input 태그들
+		모두에게 적용 됨
+
+@<fieldset></fieldset>, <legend></legend>
+-> 폼 요소를 그룹으로 묶는 태그, 묶은 폼 요소에 명칭을 붙이는 태그
+
+fieldset으로 폼요소를 묶고 legend를 통하여 묶은 폼요소에 명칭을 붙임
+
+
+
+@<input>
+-> 사용자로부터 data를 입력받기 위한 태그
+
+속성
+type		: 입력창의 타입을 결정하는 속성
+	- text		: 한줄 짜리 텍스트 입력창
+	- password	: 비밀번호 입력창 (입력시 ㆍ)
+	- hidden		: 사용자에게 보이지는 않지만 값을 넣을 수 있는 창(숨김값)
+	- button		: 버튼 생성, 자체 별도 기능은 없고 스크립트에서
+			함수를 연결하여 활용할 수 있음
+	- checkbox	: 체크박스 생성
+	- file		: 파일 입력 양식
+	- image		: 이미지 형태 생성 (버튼 대신 이미지가 submit 역할도 할 수 있음)
+	- radio		: 라디오 버튼 생성
+	- submit		: 입력한 데이터를 다른 페이지로 넘김
+	- reset		: 폼 안에 입력된 데이터를 초기화 (삭제)
+
+value		: input 요소의 기본값 표시
+name		: input 마다 구별할 수 있는 명칭 (submit시 제출되는 변수값)
+min/max/step	: 허용되는 범위 최소값/최대값/값의 증감값
+autocomplete	: 자동완성 기능
+height/width	: 입력창의 높이와 너비
+readonly		: 읽기 전용 필드
+placeholder	: 사용자 입력전 입력창 표시글
+autofocus	: 입력창 커서 표시
+maxlength	: 사용자가 입력할 수 있는 최대 글자수(제한)
+minlength	: 사용자가 입력할 수 있는 최소 글자수(제한)
+size		: 화면에서 표시하는 글자수
+
+※ input의 속성은 더 많이 있다..
+
+
+@hidden
+속성
+name	: hidden type 구분자 또는 명칭
+value	: hidden에 들어갈 값 설정
+ex) <input type="hidden" name="명칭" value="값"/>
+
+
+@text
+속성
+name	: text type 구분자 또는 명칭
+size	: 사용자 화면에 보여줄 문자 입력창의 길이
+value	: text에 들어갈 값, 설정하지 않으면 빈 값
+maxlength : 총 입력 받을 수 있는 문자 개수
+ex) <input type="text" name="명칭" value="값" size="숫자" maxlength="숫자"/>
+
+
+@password
+속성
+name	: password text의 이름 또는 명칭
+minlength : password에 들어갈 최소 문자수
+maxlength : password에 들어갈 최대 문자수
+
+ex) <input type="password" name="명칭" minlength="숫자" maxlength="숫자"/>
+
+
+
+@button
+속성
+value	: button에 표시될 문구 (사용자에게 보여지는 버튼 문구)
+event	: 자바 스크립트를 불러온 행동 (ex. onclick)
+ex) <input type="button" value="값" onclick="자바스크립트 함수"/>
+
+@checkbox / radio
+속성
+name	: 구분자 또는 명칭 (같은 그룹은 값이 같아야 함)
+value	: 전송시 전달할 값
+checked	: 초기 자동 선택 값 지정 (default는 지정이 안되엉 있음)
+ex) <input type="checkbox" name="명칭" value="값"/>
+<input type="radio" name="명칭" value="값" checked/>
+
+@ file
+속성
+multiple	: 파일 다중 선택 가능
+ex) <input type="file" name="명칭"/>
+<input type="file" name="명칭" multiple />  
+-> 다중 선택 가능
+
+@image
+속성
+name	: type의 이름
+src	: 출력할 이미지 경로 지정
+value	: 전달값
+ex) <input type="image" name="명칭" src="경로" value="전달값"/>
+
+@submit / reset
+-> submit은 전송, reset은 취소
+속성
+value	: submit과 reset버튼에 표시될 문구
+
+ex)<input type="submit" value="전송"/>
+<input type="reset" value="취소"/>
+
+@<label> </label>
+-> <form>요소에 레이블(명칭)을 붙이기 위한 태그
+※레이블 : 입력창 옆에 붙여놓은 문구 ex)아이디, 비밀번호
+
+ex)
+설문조사<br>
+        난이도<br>
+        <input type="radio" name="face" id="vg">
+        <label for="vg">매우 그렇다.</label>
+        
+        <input type="radio" name="face" id="g">
+        <label for="g">그렇다.</label>
+        
+        <input type="radio" name="face" id="n">
+        <label for="n">보통이다.</label>
+        
+        <input type="radio" name="face" id="b">
+        <label for="b">아니다.</label>
+        
+        <input type="radio" name="face" id="vb">
+        <label for="vb">매우 아니다.</label>
+
+※ name과 id의 차이점은 무엇일까?
+-> name은 다른페이로 해당 태그가 가지고 있는 데이터를 넘길때 사용되는 변수 이름
+-> id는 해당 페이지에서 태그들을 구분하기 위한 고유의 값
+
+------------------------- 그외 input 태그들 ---------------------
+-> 그외 html5에서 지원되는 input 태그들
+
+@ color
+속성
+name	: 구분 이름
+ex) <input type="color" name="명칭"/>
+
+
+@ date, datetime-local, month, week
+-> 사용자가 직접 입력하는 deletime은 지원 중단 됨
+(시간 값은 사용자가 직접 입력하면 오타로 인해 처리하기 어려운 문제가 많음)
+
+min	: 최소표시 날짜 지정 (ex. 1988-01-01)
+max	: 최대표시 날짜 지정 (ex. 2020-12-31)
+value	: 초기 표현 값
+
+<input type="타입명" id="명칭" min="0000-00-00" max="0000-00-00" step="숫자"
+	value="날짜">
+
+※ date : yyyy-mm-dd
+※ detetime-local : yyyy-mm-ddT00:00(24)
+※ month : yyyy-mm
+ex)
+<fieldset>
+        <legend>date 예제</legend>
+            <input type="date" min="1960-01-01" max="2030-12-31"/>
+        </fieldset>
+        
+        <fieldset>
+        <legend>datetime-local 예제</legend>
+            <input type="datetime-local" min="1960-01-01T00:00" max="2030-12-3123:59"/>
+        </fieldset> 
+        
+        <fieldset>
+        <legend>month 예제</legend>
+            <input type="month" min="1960-01" max="2030-12"/>
+        </fieldset> 
+        
+        <fieldset>
+        <legend>week 예제</legend>
+            <input type="week"/>
+        </fieldset>
+
+
+@time
+-> 시간을 표현하는 태그
+속성
+value : 초기 시간 지정
+ex) <input type="time" value="12:00"/>
+
+
+@number
+속성
+min	: 최소 표시 숫자 지정
+max	: 최대 표시 숫자 지정
+step	: 숫자 간격 지정
+value	: 초기 표현값
+ex)<input type="number" min="1" max="100" step="2" value="1"/>
+
+
+@ url / email / tel
+ex) <input type="url/email/tel" value="초기값"/>
+
+
+@<select> </select>
+-> select를 만드는 태그
+-> option과 함께 쓰임
+
+
+@<option> </option>
+-> select 안에 목록으로 표시될 태그
+속성
+selected : 기본으로 선택된 값
+
+
+@<optgroup> </optgroup>
+속성
+label	: 목록 이름으로 출력될 문구
+
+
+@<datalist> </datalist>
+-> 여러가지 데이터를 보여주는 태그
+-> option 태그와 함께 쓰임
+속성
+multiple	: 여러항목을 선택 지정 가능 (ctrl 누른 상태에서 선택)
+ex)
+당신이 좋아하는 사람은 누구입니까?<br>
+        <datalist id="who">
+            <option value="가나다"/>
+            <option value="ganada"/>
+            <option value="家羅多"/>
+            <option value="rkskek"/>
+        </datalist>
+        <input type="text" list="who">
+
+
+
+
+
+
+
+
+
+
+
+
