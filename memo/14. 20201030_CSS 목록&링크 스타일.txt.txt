@@ -1,0 +1,135 @@
+--------------------------------------- 목록 스타일 -------------------------------
+
+@ list-style-type
+-> 목록 기호의 스타일을 지정하는 속성
+
+ul
+- disc		: 흑색 원형
+- circle		: 흰색 원형
+- square		: 흑색 사각형
+- none		: 기호 표시 안하기 (없애기)
+
+기본 형식
+선택자 { list-style-type : disc | circle | square | none ; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        ul{width : 50px;
+            list-style-type: disc;
+        }
+        ul>li:active{list-style-type: circle;}
+
+    </style>
+</head>
+<body>
+    <center>
+        <ul>   
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+        </ul>
+        </center>
+</body>
+
+
+ol
+- decimal		 	: 1로 시작 십진수
+- decimal-leading-zero	: 앞에 0이 붙은 십진수
+- lower-roman / upper-roman: 소문자 로마자 / 대문자 로마자
+- lower-alpha / lower-latin	: 소문자 알파벳
+- upper-alpha / upper-latin	: 대문자 알파벳
+
+기본 형식
+선택자 { list-style-type : decimal | decimal-leading-zero |  lower-roman ..... ;}
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        ol{width : 50px;
+        }
+        ol>li:active{
+                list-style-type: lower-roman;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <ol>   
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+        </ol>
+        </center>
+</body>
+
+
+
+@ list-style-image
+-> 기호 대신 이미지 삽입 가능
+-> 이미지 사이즈가 너무 크면 벗어나게 됨 (10x10 픽셀이 가장 좋은 사이즈)
+
+기본 형식
+선택자 { list-style-image : url(이미지 경로); }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        ol{width : 50px;
+                list-style-image: url("image/kakao.jpg");
+        }
+        
+
+    </style>
+</head>
+<body>
+    <center>
+        <ol>   
+            <li>Test</li>
+            <li>Test</li>
+            <li>Test</li>
+        </ol>
+        </center>
+</body>
+
+
+
+@ list-style-position
+-> 목록 기호 들여쓰기
+
+inside	: 블릿이나 숫자를 안쪽으로 들여 씀
+outside	: 블릿이나 숫자를 밖으로 내어 씀 (기본 값)
+
+기본 형식
+선택자 { list-style-position : inside | outside ;}
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        ol{width : 50px; 
+            border: 1px black solid;
+            }
+        ol>li:nth-child(1) {list-style-position: inside;}
+        ol>li:nth-child(2) {list-style-position: outside;}
+        
+
+    </style>
+</head>
+<body>
+    <center>
+        <ol>   
+            <li>Test</li>
+            <li>Test</li>
+        </ol>
+        </center>
+</body>

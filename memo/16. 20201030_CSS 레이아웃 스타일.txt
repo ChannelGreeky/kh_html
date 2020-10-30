@@ -1,0 +1,82 @@
+@ height / width
+-> 콘텐츠(내용)가 차지하고 있는 영역의 크기를 조절할 수 있는 속성
+
+선택자 { 
+	width : 숫자(단위);
+	height : 숫자(단위);
+         }
+
+@ display 속성
+-> 각 태그들의 block, inline 속성들을 변경할 수 있는 속성
+-> 대표적으로 block, inline, none, inline-block이 있음
+
+## none 속성
+-> 말 그대로 없애는 속성
+
+## block 속성
+-> 가지고 있던 display
+
+## inline 속성
+-> display 속성을 inline으로 변경 (일반적으로 block -> inline으로 바꿀 때 많이 사용)
+
+@ 레이아웃 테두리 스타일
+-> 테두리 레이아웃을 설정할 수 있는 속성
+
+## border-style
+-> 테두리 스타일 지정
+
+none	: 테두리가 나타나지 않음 (default 값)
+hidden	: 테두리가 나타나지 않음 (none과 같음)
+dashed	: 짧은 (dotted보다 긴 점선) 선으로 표시
+dotted	: 점선 테두리
+double	: 두 개의 실선
+groove	: 테두리가 안으로 파진것처럼 보이는 선
+inset	: 테두리를 포함한 컨텐츠 영역이 안으로 들어간것처럼 보임
+outset	: 테두리를 포함한 컨텐츠 영역이 밖으로 튀어나온것처럼 보임
+ridge	: 테두리가 밖으로 튀어나온것처럼 보임
+solid	: 기본 실선
+
+## border-width
+-> 테두리의 두께를 정하는 속성
+
+선택자 { border-[위치]-width : 숫자(단위) 또는 속성값; }
+
+속성값
+	-thin(얇게)
+	-medium(중간크기)
+	-thick(두껍게)
+[위치] 값
+	-top, bottom, right, left
+
+
+##border-color
+-> 테두리 색상을 지정하는 속성
+
+선택자 { border-[위치]-color : 색상; }
+
+@ border
+-> 테두리의 두께, 스타일, 색상을 한번에 지정할 수 있는 속성
+
+선택자 { border-[위치] : 두께 스타일 색상; }
+※ 선택자 { border-[위치] : 두께 색상 스타일;} 도 가능
+
+@border-radius
+-> 테두리의 모서리를 둥글게 하는 속성
+-> 위치 : top-left, top-right, bottom-left, bottom-right
+
+선택자 { border-[위치]-radius : 숫자 (단위); }
+
+@ 여백 스타일
+-> 여백은 블럭 요소의 상하좌우에 빈 공간을 두는 것을 의미
+-> 요소끼리 너무 인접해 있으면 시각적으로 갑갑해 보일 뿐만 아니라 터치 환경에서 정확한 터치 입력도 어려움
+-> 여백 스타일에는 margin(마진), padding(패딩)이 있음
+
+# margin
+-> 요소의 바깥쪽에 배치되는 여백이며, 외부의 부모나 형제 사이에 삽입되는 빈 공간
+-> 요소의 크기에서 제외 됨
+-> 선택자 { margin-[위치] : 숫자(단위) ; }
+
+# padding
+-> 요소의 안쪽에 배치되는 여백이며, 요소의 경계선과 내용물 사이에 삽입되는 빈 공간
+-> 요소의 크기에 포함 됨
+-> 선택자 { padding5-[위치] : 숫자(단위) ; }

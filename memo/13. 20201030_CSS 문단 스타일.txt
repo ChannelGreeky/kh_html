@@ -1,0 +1,186 @@
+----------------------------------------- CSS 문단 스타일 ----------------------------------------
+@ direction
+-> 글자 쓰기 방향 지정 속성
+
+ltr	: 왼쪽에서 오른쪽으로 텍스트를 표시
+rtl	: 오른쪽에서 왼쪽으로 텍스트를 표시
+
+기본 형식
+선택자 {direction : ltr 또는 rtl; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        .p1-direction{direction: ltr;}
+        .p2-direction{direction: rtl;}
+    </style>
+</head>
+<body>
+    <p class="p1-direction">안녕하세요</p>
+    <p class="p2-direction">안녕하세</p>
+</body>
+
+@ text-align
+-> 문자 위치를 조정(정렬) 하는 속성
+
+left		: 왼쪽에 맞추어 정렬
+right		: 오른쪽에 맞추어 정렬
+center		: 가운데 맞추어 정렬
+justify		: 양쪽에 맞추어 문단 정렬
+
+기본 형식
+선택자 {text-align : left | right | center | justify ; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p{border : 1px black solid;
+            width : 800px;
+            height : 200px;
+        }
+        .p1{text-align: left;}
+        .p2{text-align: right;}
+        .p3{text-align: center;}
+        .p4{text-align: justify;}
+    </style>
+</head>
+<body>
+    <center>
+    <p class="p1">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p2">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p3">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p4">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    </center>
+</body>
+
+@ text-indent
+-> 문장을 들여쓰기 하는 속성
+
+기본 형식
+선택자 {text-indent : 숫자(단위) ; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p{border : 1px black solid;
+            width : 800px;
+            height : 200px;
+        }
+        .p1{text-indent: 10px;}
+        .p2{text-indent: 20px;}
+        .p3{text-indent: 30px;}
+        .p4{text-indent: 40px;}
+    </style>
+</head>
+<body>
+    <center>
+    <p class="p1">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p2">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p3">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p4">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    </center>
+</body>
+
+@ line-height
+-> 문장끼리의 줄 간격을 조정하는 속성
+
+기본 형식
+
+선택자 {line-height : normal 또는 숫자(단위) ; }
+
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p{border : 1px black solid;
+            width : 800px;
+            height : 200px;
+        }
+        .p1{line-height: 10px;}
+        .p2{line-height: 20px;}
+        .p3{line-height: 30px;}
+        .p4{line-height: 40px;}
+    </style>
+</head>
+<body>
+    <center>
+    <p class="p1">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p2">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p3">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    <p class="p4">나는 사랑이 어떻게 이뤄지는 지 연구 했지 여러가지 상황의 수를 계산 해 봤지 그땐 내가 좀 못 생겨서 흑흑 니가 좋아하는 노랠 알아내는 것은 필수
+ 가성이 많이 들어가서 마이크 조절이 굉장히 조심스러웠었지</p>
+    </center>
+</body>
+
+ex) line-height의 또 다른 사용법
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p{border: 1px black solid;
+            height : 50px;
+            width : 200px;
+            line-height: 50px;
+        }   
+    </style>
+</head>
+<body>
+    <center>
+    <p>KH정보교육원</p>
+        </center>
+</body>
+
+
+
+
+
+
+@ text-overflow
+-> 영역을 벗어나는 텓스트 표시 속성
+
+clip		: 영역을 넘어가는 텍스트를 자름
+ellipsis		: 말 줄임으로 잘린 텍스트 표현 (...으로 표현)
+
+기본형식
+선택자 {text-overflow : clip 또는 ellipsis; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p{border: 1px black solid;
+            height : 50px;
+            width : 200px;
+            white-space: nowrap;
+            overflow: hidden;
+        }   
+        #p1{text-overflow: clip;}
+        #p2{text-overflow: ellipsis;}
+    </style>
+</head>
+<body>
+    <center>
+    <p id="p1">안녕하세요 테스트를 위한 글 입니다.</p>
+    <p id="p2">안녕하세요 테스트를 위한 글 입니다.</p>
+        </center>
+</body>

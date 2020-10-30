@@ -1,0 +1,410 @@
+@ 후손 선택자 / 자손 선택자
+-> 후손은 내 아래 모든 것
+-> 자손은 내 직속 아래
+
+후손 선택자 형식
+선택자 후손선택자 { 설정내용; }
+
+자손 선택자 형식
+선택자>자손선택자{설정내용;}
+
+※ 자손선택자는 여러개의 자손 선택이 가능 (선택자>자손>자손>자손...)
+
+ex) 
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        div>h1{color : red;}
+        div>ul>li {color : blue;}
+        div li {background-color: skyblue;}
+    </style>
+</head>
+<body>
+    <!--div 입장 -->
+    <div>
+        <h1>div 자손1</h1>
+        <h2>div 자손2</h2>
+        <ul>
+            <li>ul 자손1</li>
+            <li>ul 자손2</li>
+        </ul>
+        <ol>
+            <li>ol 자손1</li>
+            <li>ol 자손2</li>
+        </ol>
+    </div>
+    <h1>나는 h1 입니다.</h1>
+
+@ 동위 선택자
+-> 동위 관계에서 뒤에 위치한 태그를 선택할 때 사용
+
+동위선택자a+동위선택자b : 동위선택자a의 바로 뒤에 있는 한개의 선택자만 선택
+동위선택자a~동위선택자b : 동위선택자a의 뒤에 있는 선택자 b 모두 선택
+
+※ 같은 자손(형제) 끼리는 동위 관계라고 볼 수 있음
+
+ex) 
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        h4+h5{color :red;}
+        h4~p{background-color: aqua;}
+    </style>
+</head>
+<body>
+    <div>
+        <h4>자손1</h4>
+        <h5>자손2</h5>
+        <h5>자손3</h5>
+        <p>자손4</p>
+        <p>자손5</p>
+    </div>
+</body>
+
+@ 반응 선택자
+-> 사용자의 움직임에 따라 달라지는 선택자
+
+선택자:active	-> 사용자가 클릭한 태그 선택
+선택자:hover	-> 사용자의 마우스가 올라가 있는 태그 선택
+
+기본형식
+선택자:active {설정내용;}
+선택자:hover {설정내용;}
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p:active {color : red;}
+        p:hover {background-color: pink;}
+    </style>
+</head>
+<body>
+    <p>Test 글</p>
+    <p>Test 글</p>
+    <p>Test 글</p>
+    <p>Test 글</p>
+    <p>Test 글</p>
+    <p>Test 글</p>
+    <p>Test 글</p>
+
+</body>
+
+
+@ 상태 선택자
+-> 입력 양식의 상태에 따라 선택되는 선택자
+
+input태그:checked	-> 체크 상태의 input 태그 선택 (체크가 되었다면!)
+input태그:focus	-> 초점이 맞추어진 input 태그 선택 (초점이 맞추어졌다면!)
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        input:focus{background-color: aqua;}
+        input:checked{height : 20px; width: 20px;}
+        input:checked+label{color:red;
+                font-size:20px;
+                font-weight: bold;}
+    </style>
+</head>
+<body>
+   <form>
+        <fieldset>
+        <legend>회원 가입</legend>
+        ID : <input type="text" /> <br>
+        PW : <input type="password" /> <br>
+        이름 : <input type="text" /> <br>
+        주소 : <input type="text"/> <br>
+        성별 : <input type="radio" name="gender"/><label>남</label>
+                <input type="radio" name="gender"/><label>여</label>
+       </fieldset>
+    </form>
+
+</body>
+
+option태그:enabled		-> 사용 가능한 option 태그 선택
+option태그:disabled	-> 사용 불가능한 option 태그 선택
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        input:focus{background-color: aqua;}
+        input:checked{height : 20px; width: 20px;}
+        input:checked+label{color:red;
+                font-size:20px;
+                font-weight: bold;}
+        
+        option:enabled {color:blue;}
+        option:disabled {color:red;}
+    </style>
+</head>
+<body>
+   <form>
+        <fieldset>
+        <legend>회원 가입</legend>
+        ID : <input type="text" /> <br>
+        PW : <input type="password" /> <br>
+        이름 : <input type="text" /> <br>
+        주소 : <input type="text"/> <br>
+        성별 : <input type="radio" name="gender"/><label>남</label>
+                <input type="radio" name="gender"/><label>여</label><br>
+        당신의 연령대 : 
+                <select>
+                    <option disabled>10대(선택불가)</option>
+                    <option>20대</option>
+                    <option>30대</option>
+                    <option>40대</option>
+                    <option>50대</option>
+            </select>
+            
+       </fieldset>
+    </form>
+
+</body>
+
+
+@ 일반구조 선택자
+-> 특정한 위치에 있는 태그를 선택 (위치로만 구분)
+:first-child	-> 형제 관계 태그 중 첫번째 태그 선택
+:last-child		-> 형제 관계 태그 중 마지막 태그 선택
+:nth-child(수열)	-> 형제 관계 태그 중 앞에서 수열 번째 태그 선택
+:nth-last-child(수열)-> 형제 관계 태그 중 뒤에서 수열 번쨰 태그 선택
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        div *:first-child{color : red;}
+        div *:last-child{color : blue;}
+        div *:nth-child(2){background-color: aqua;}
+        div *:nth-last-child(2){background-color: gray;}
+    </style>
+</head>
+<body>
+    <div>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>  
+    </div>
+
+</body>
+
+@ 형태구조 선택자
+-> 특정한 위치에 있는 태그를 선택 (태그 별로 구분)
+
+:first-of-type		-> 형제 관계 태그 중 첫번째 태그 선택
+:last-of-type		-> 형제 관계 태그 중 마지막 태그 선택
+:nth-of-type(수열)		-> 형제 관계 태그 중 앞에서 수열 번째 태그 선택
+:nth-last-of-type(수열)	-> 형제 관계 태그 중 뒤에서 수열 번째 태그 선택
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        div *:first-of-type{color : red;}
+        div *:last-of-type{color : blue;}
+        div *:nth-of-type(1){background-color: aqua;}
+        div *:nth-last-of-type(2){background-color: gray;}
+    </style>
+</head>
+<body>
+    <div>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>
+        <p>div의 자식입니다. -p-</p>
+        <h4>div의 자식입니다. -h4-</h4>  
+    </div>
+
+</body>
+
+
+@ 링크 선택자
+-> 링크(href)가 걸려있는 태그를 선택하는 선택자
+
+:link		-> 방문전(링크를 가기전 상태) 링크 선택자 
+:visited		-> 방문후(링크를 다녀온 상태) 링크 선택자
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        a:link{color:red; 
+            
+            }
+        a:visited{
+            color:green;
+               
+            }
+    </style>
+</head>
+<body>
+    <center>
+        <a href="https://www.naver.com">네이버</a><br>
+        <a href="https://www.nate.com">네이트</a><br>
+        <a href="https://www.daum.net">다음</a><br>
+        <a href="https://www.google.com">구글</a><br>
+        <a href="https://www.iei.or.kr">KH정보교육원</a><br>
+    </center>
+
+</body>
+
+
+@ 문자 선택자
+-> 태그 내부에서 특정 조건의 문자를 선택하는 선택자
+
+선택자::first-letter		-> 첫번째 글자를 선택
+선택자::first-line		-> 첫번째 줄을 선택
+선택자::after		-> 태그 뒤에 위치하는 공간을 선택
+선택자::before		-> 태그 앞에 위치하는 공간을 선택
+선택자::selection		-> 사용자가 드래그한 글자를 선택
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        #p1::first-letter {font-size:30px;}
+        #p1::first-line {color : blue;}
+        #p2::after{content: "어쩌라구";}
+        #p4::before{content:"하하하";}
+        .test-char::selection {background-color: yellow;
+                     
+        }
+    </style>
+</head>
+<body>
+    <p id="p1" class="test-char">테스트 글자 입니다 <br> 어때요? </p>
+    <p id="p2" class="test-char">테스트 글자 입니다 <br> 어때요? </p>
+    <p id="p3" class="test-char">테스트 글자 입니다 <br> 어때요? </p>
+    <p id="p4" class="test-char">테스트 글자 입니다 <br> 어때요? </p>
+
+</body>
+
+@ 부정 선택자
+-> 지금까지의 선택자에 대해 반대로 적용하는 선택자
+요소:not(선택자) -> 선택자를 제외한 나머지를 뜻 함
+
+ex) 
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p:not(#p1) {color:red;}
+    </style>
+</head>
+<body>
+    <p id="p1">테스트</p>
+    <p id="p2">테스트</p>
+    <p id="p3">테스트</p>
+    <p id="p4">테스트</p>
+    <p id="p5">테스트</p>
+
+</body>
+
+
+
+@ CSS 우선 순위
+
+# 적용 방법에 따른 우선 순위 #
+
+!important > 인라인 스타일 > id 스타일 > class 스타일 > 스타일 태그
+	
+※ !important 가 가장 높은 우선 순위
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        p {color : red !important;}    /* 태그 선택자 */
+        .pp {color : blue;} /* 클래스 선택자 */
+        #p1 {color : pink;} /* ID 선택자 */
+    </style>
+</head>
+<body>
+    <p id="p1" class ="pp" style="color:gray;">테스트</p>
+
+</body>
+
+
+
+
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        .text-red {color : red;}
+        .back-yellow{background-color: yellow;}
+    </style>
+</head>
+<body>
+    <p class="text-red">안녕하세요</p>
+    <p class="back-yellow">저는 오늘</p>
+    <p class="text-red back-yellow">편의점에서</p>
+    <p class="text-red">혼자 라면을 먹었어요</p>
+    <p>외롭다... 직원들이 안먹는대요..</p>
+
+</body>
+
+
+
+
+
+
+
+
+
+# 동일한 선택자 일경우
+- 나중에 작성된 스타일이 최종 적용 됨 (코드 순서)
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        .pp {  color : red;}
+        .pp2 { color : blue;}
+    </style>
+</head>
+<body>
+    <p id="p1" class ="pp pp2">테스트</p>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,183 @@
+--------------------------------------- CSS 색상 스타일 ----------------------------------
+
+@ background-color
+-> 배경색을 지정하는 속성
+
+기본형식
+선택자 { background-color : 색상표현 ; }
+
+ex)
+
+<head>
+<meta charset="UTF-8">
+    <style>
+        div {border: 1px black solid;}
+        #div1 {width : 300px; height : 200px; 
+            background-color: red;
+        }
+        #div2 {width : 80%; height : 80%; 
+            background-color: blue;
+        }
+        #div3 {width : 80%; height : 80%; 
+            background-color: yellow;
+        }
+        #div4 {width : 80%; height : 80%; 
+            background-color: green;
+        }
+        body { background-color: aqua;}
+    </style>
+</head>
+<body>
+    <center>
+        <div id="div1">
+            <div id="div2">
+                <div id="div3">
+                    <div id="div4">  </div>
+        
+                </div>    
+            </div>
+        </div>
+        </center>
+</body>
+
+@블록레벨 요소와 인라인레벨 요소
+->html 태그에는 블록과 인라인 형태로 구분할 수 있음
+
+## 블록레벨 요소 ##
+-> 한 줄 전체를 차지하는 요소 (박스 모델이라고도 함)
+-> 한 줄에 다른 요소가 올 수 없음
+-> 블록 단위이기 때문에 크기 조절이 가능(width / height)
+-> 자동 줄 개행(한줄의 모든 공간을 차지하기 때문)
+-> 종류 : div, h1 ~ h6, 목록 태그, 테이블 태그, form태그 등등
+-> 블록레벨 요소는 마진, 보더, 패딩, 콘텐트 영역을 포함하고 있음
+	- margin : 블럭 레벨 요소끼리의 비워져 있는 공간
+	- border : 블럭 레벨 요소의 외곽선 두께
+	- padding : border와 content 사이의 공간
+	- content : 실제 내용이 들어 있는 공간 
+
+## 인라인 레벨 요소 ##
+-> 한 줄에서 일부분만 차지하는 요소 (자신의 요소만 크기로 잡음)
+-> 한 줄에 여러 요소가 올 수 있음
+-> 한 부분만(자신만) 해당 되기 때문에 크기 조절이 불가능
+-> 자동 줄 개행을 안함 (필요한 요소 크기만큼만 잡기 때문)
+-> 종류 : span, a, input, 글자형식 태그 등등
+
+
+
+
+@ background-clip
+-> 배경 범위 조절
+
+border-box		: 박스 모델의 가장 외곽인 테두리까지 적용
+padding-box		: 테두리를 제외한 패딩 범위까지 적용
+content-box		: 내용부분만 적용
+
+
+@ background-image
+-> 요소에 배경 이미지 지정
+
+기본 형식
+선택자 { background image : url(경로); }
+
+@ background-repeat
+-> 배경 이미지를 반복 출력 설정
+repeat		: 브라우저에 가득 찰 때까지 가로/세로 반복
+repeat-x		: 넓이 만큼 반복 (가로)
+repeat-y		: 높이 만큼 반복 (세로)
+no-repeat		: 이미지를 한번만 출력
+
+기본 형식
+선택자 { background-repeat : 속성값; }
+
+
+@ background-size
+-> 배경 이미지의 크기를 조절하는 속성
+
+auto		: 원래 배경 이미지 크기만큼 표시
+contain		: 요소안으로 이미지가 들어올 수 있도록 확대/축소
+cover		: 요소의 범위를 이미지가 덮을 수 있도록 확대/축소
+픽셀 단위로도 가능
+
+@ background-origin
+-> 배경 이미지를 배치할 때 기준을 지정하는 속성
+
+@ background-origin
+-> 배경 이미지를 배치 할 때 기준을 지정하는 속성
+
+border-box		테두리가 기준
+padding-box		테두리를 뺀 패딩영역부터 기준
+content-box		content부분부터 기준
+
+@ background-attachment
+-> 웹 페이지가 위 아래로 움직여도 배경이미지는 움직이지 않게 고정하는 속성
+
+scroll		: default값, 배경이미지가 움직이게 설정
+fixed		: 배경이미지가 움직이지 않게 설정
+
+기본 형식
+선택자 {background-attachment : 속성값; }
+
+
+@ 선형 그라데이션
+-> 색상이 수직, 수평, 대각성 방향으로 일정하게 변하는 것
+
+기본 형식
+선택자 { 
+	background : linear-gradient(각도 or 방향, 시작 색상, [color-stop(색상, 위치)], 끝 색상);
+          }
+
+## 방향
+to top		: 아래에서 위로 그려지는 그라데이션
+to left		: 오른쪽에서 왼쪽으로 그려지는 그라데이션
+to right		: 왼쪽에서 오른쪽으로 그려지는 그라데이션
+to bottom	: 위에서 아래로 그려지는 그라데이션
+
+## 각도
+숫자 deg	: 위쪽을 기준(0도)으로 시계방향으로 각도 증가
+
+## 시작색상 / 끝색상
+색상 표시 : 색단어 또는 rgb / 16진수 표기법
+
+## 중간 지점 색상 / 위치
+색상 표시 : 색단어 또는 rgb / 16진수 표기법
+위치 : 백분율(%)로 표시
+
+@ 원형 그라데이션
+-> 색상이 원이나 타원의 중심부터 동심원을 그리며 바깥방향으로 색상 변경
+
+기본 형식
+
+선택자 { background : radial-gradient (모양 크기 at 위치, 시작색상, 끝색상 ) ; }
+
+※ 인자값은 최소 2개 이상 (시작 색상과 끝 색상)
+
+## 모양
+circle		원형
+ellipse		타원형 (default 값)
+
+## 크기
+closet-side	원형의 중심에서 가장 가까운 변과 중심의 거리가 원형의 크기(반지름)
+closet-corner	원형의 중심에서 가장 가까운 모서리와 원형의 중심 거리가 원형의 크기
+		(반지름)
+farthest-side	원형의 중심에서 가장 먼 변과 원형 중심의 거리가 원형의 크기(반지름)
+farthest-corner	원형의 중심에서 가장 먼 모서리와 원형의 중심거리가 원형의 크기(반지름)
+
+## 위치 (x(가로) , y(세로) 좌표)
+수평위치 	left / center / right
+수직위치 top / center / bottom
+백분율	페이지 기준 백분율 표현 (가로, 세로)
+
+
+@ 그라데이션 반복 (선형)
+- 그라데이션 패턴 요소를 다 채울 때 까지 반복하는 것
+
+기본 형식
+선택자 { background : repeating-linear-gradient (모양, 시작색상, 끝색상 중단위치); }
+
+## 두가지 색상이 뚜렷하게 될 수 있도록 하는 방법
+선택자 {background : repeating-linear-gradient(모양, 시작색상, 시작색상 중단위치, 끝색상, 끝색상 중단위치);}
+
+@ 원형 그라데이션 반복
+선택자 {
+	background : repeating-radial-gradient(모양, 시작색상, 끝색상 중단위치);
+         }
