@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이승현의 웹</title>  
+<style>
+    body{
+        padding: 0px;
+        margin: 0px;
+    }
+    #wrapper {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        transform: translateX(-240px);
+        transition: all 2s;
+    }
+    #wrapper-btn{
+        background-color: yellow;
+        width: 20%;
+        height: 100%;
+        float: left;
+        font-size: 50px;
+        line-height: 300px;
+        text-align: center;
+    }
+    #wrapper-contents{
+        background-color: skyblue;
+        width: 80%;
+        height: 100%;
+        float: left;
+    }
+    #wrapper:active{
+        transform: translateX(0px);
+        transform: rotate(90deg);
+    }
+    #div1 {
+        width:100px;
+        height: 100px;
+        background-color: yellow;
+        
+        transition: width 2s, height 3s;
+    }
+    
+    #div1:hover{
+        width: 200px;
+        height: 200px;
+    }
+    
+    #div2 {
+        width:100px;
+        height: 100px;
+        background-color: yellow;
+        
+        animation-duration: 2s;
+        animation-direction: alternate;
+        
+        animation-iteration-count: infinite;
+    }
+    
+    #div2:hover{
+        animation-name:slidein;
+    }
+    
+    @keyframes slidein{
+        0% {
+            background-color: fuchsia;
+            left: 0px; top: 0px;
+        }
+        25%{
+            background-color: blue;
+            left: 0px; top: 200px;
+        }
+        50%{
+            background-color: aqua;
+            left: 200px; top: 0px;
+        }
+        75%{
+            background-color: forestgreen;
+            left: 200px; top: 200px;
+        }
+        100%{
+            background-color: fuchsia;
+            left: 0px; top: 0px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="wrapper-contents"></div>
+        <div id="wrapper-btn">▶</div>
+    </div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>
