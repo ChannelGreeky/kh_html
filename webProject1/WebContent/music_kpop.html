@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이승현의 웹</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gamja Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@223;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Raleway:wght@223;400&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Nanum Godic Coding';
+        color: rgba(255,255,255, 0.8);
+    }
+    
+    body {
+        margin: 0px;
+        padding: 0px;
+        background: #202024;
+        box-sizing: border-box;
+        
+    }
+
+    #wrapper{
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    #top-bar {
+        background: rgba(2,11,19, 1);
+        width: 100%;
+        height: 50px;
+        padding-left: 88%;
+        margin: 0px;
+        position: fixed;
+    }
+    
+    
+    #login-btn {
+        text-align: center;
+        width: 100px;
+        height: 100%;
+        margin: 0px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+        padding-top: 10px;
+    }
+    
+    #login-btn:hover{
+        background: rgba(10,31,52, 0.6);
+    }
+    
+    #login-btn:active>#login-form {
+        height: 200px;
+    }
+    
+    #login-form{
+        width: 300px;
+        height: 0px;
+        overflow: hidden;
+        border: 1px solid rgba(10,31,52, 0.6);
+        float: right;
+        transition: height 1s;
+    }
+    
+    #login-form div {
+        border: none;
+        background: rgba(2,11,19, 1);
+    }
+    
+    #id {
+        width:70%;
+        height: 40%;
+        float: left;
+    }
+    
+    #pw {
+        width:70%;
+        height: 40%;
+        float: left;
+    }
+    
+    #login-form input {
+        color: black;
+        width: 90%;
+        height: 70%;
+        margin: 10px 10px 10px 10px;
+    }
+    
+    #btn {
+        width: 30%;
+        height: 80%;
+        float: right;
+        text-align: center;
+    }
+    
+    #btn>button {
+        color: black;
+        width: 80%;
+        height: 80%;
+        margin-top: 15px;
+    }
+    
+    #link {
+        width: 100%;
+        height: 20%;
+        float: left;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 0.9em;
+    }
+    
+    #link a {
+        text-decoration: none;
+    }
+    
+    #header-bg{
+        width: 100%;
+        height: 630px;
+        background-image: url(image/music/main.jpeg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-align: center;
+        
+    }
+    
+    #header {
+        width:100%;
+        height: 100%;
+        background: rgba(2,11,19, 0.7);
+        padding-top:15%;
+    }
+    
+    #page-title{
+        margin: 0px auto;
+        padding: 0px;
+        font-size: 4em;
+    }
+    
+    #header>h2 {
+        font-size: 3em;
+    }
+    
+    #login-text{
+        margin:10px;
+    }
+    
+    
+    #nav-wrapper{
+        width: 100%;
+        height: 10%;
+    }
+    #nav-gnv {
+        width: 400px;
+        margin: 20px auto;
+        height: 60px;
+    }
+    
+    #nav-gnv>ul {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    #nav-gnv>ul>a>li {
+        list-style-type: none;
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        line-height: 55px;
+        width: 60px;
+        margin: 0px 70px;
+        height: 100%;
+        border-radius: 180px;
+        border: 1px solid white;
+        background : rgba(255,255,255, 0.3);
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+    
+    #nav-gnv>ul>a>li:hover{
+        transform: scale(1.2);
+    }
+    #nav-gnv>ul>a>li>div{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
+    
+    #nav-gnv>ul>a>li>#korea{
+        background-image: url(image/music/korea.png);
+    }
+    #nav-gnv>ul>a>li>#america{
+        background-image: url(image/music/america.png);
+    }
+    #nav-gnv>ul>a>li>#git{
+        background-image: url(image/my/git2.png);
+    }
+    #nav-gnv>ul>a>li>#twiter{
+        background-image: url(image/my/twiter2.png);
+    }
+    
+    #content-wrapper{
+        width: 100%;
+        height: auto;
+    }
+    
+    #content{
+        margin: auto;
+        width: 90%;
+        height: auto;
+        overflow: hidden;
+    }
+    
+    
+    .col {
+        float: left;
+        width: 50%;
+        margin: auto;
+        height: 100%;
+    }
+    
+    .photo-wrapper {
+        width: 100%px;
+        height: auto;
+        margin: 30px 15px;;
+        border: 0.3px solid white;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(44,44,50, 1);
+        transition: all 0.3s;
+    }
+    
+    .photo-wrapper:hover {
+        border: 0.3px solid #ff7c96;
+        box-shadow: -0.5px -0.5px 5px #FF6382 , 0.5px 0.5px 5px #FF6382 , -0.5px -0.5px 5px #ff496e , 0.5px 0.5px 5px #ff496e;
+        background-color: rgba(255,255,255, 0.4);
+    }
+    
+    
+    .photo-wrapper:hover>.photo {
+        transform: scale(1.1);
+        
+    }
+    
+    .photo{
+        width: 100%;
+        height: 70%;
+        transition : all 0.3s;
+    }
+    
+    .photo-content {
+        text-align: center;
+        width: 100%;
+        height: 30%;
+        padding: 20px 3px;
+        margin: 5px;
+        
+    }
+    
+    #to-top{
+        width: 50px;
+        height: 50px;
+        border: 1px solid white;
+        border-radius: 100px;
+        background-image: url(image/my/to_top.png);
+        background-size: cover;
+        transition: 0.3s;
+        position: fixed;
+        left : 95%;
+        top : 90%;
+    }
+    
+    #to-top:hover{
+        transform: scale(1.2);
+    }
+    
+    #footer{
+        background: black;
+        width: 100%;
+        height: 150px;
+        text-align: center;
+        padding-top: 50px;
+    }
+    
+    #footer>a{
+        text-decoration: none;
+    }
+    
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="top-bar">
+   
+            <div id="login-btn">
+                Login
+            </div>
+            <div id="login-form">
+                <div id="id">
+                    <input type="text" placeholder="ID를 입력하세요">   
+                </div>
+                <div id="btn">
+                    <button>로그인</button>
+                </div>
+                <div id="pw">
+                    <input type="password" placeholder="PW를 입력하세요"> 
+                </div>
+                <div id="link">
+                    <a href="#">회원가입</a>
+                    <a href="#">ID/PW찾기</a>
+                </div>
+            </div>
+        </div>
+        <div id="header-bg">
+            <div id="header">
+                <h1 id="page-title">World Music</h1>
+                <h2>K-POP TOP10 CHART</h2>
+            </div> 
+        </div>
+        <div id="nav-wrapper">
+            <div id="nav-gnv">
+                <ul>
+                    <a href="#">
+                    <li>
+                        <div id="korea">
+                        </div>
+                    </li>
+                    </a>
+
+                    <a href="./music_pop.html">
+                    <li>
+                        <div id="america">
+                        </div>
+                    </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div id=content-wrapper>
+            <div id="content">
+                <div class="col">
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/gdZLi9oWNZg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">1. Dynamite - 방탄소년단</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/zW9f47Bn6yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">3. DON'T TOUCH ME - 환불원정대</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/UV_92YMQcas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">5. 취기를 빌려-산들</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/tDukIfFzX18" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">7. 마리아-화사</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/DePkBesa0OM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">9. 내 마음이 움찔했던 순간 - 규현</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/dyRsYk0LyA8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">2. Lovesick Girls - BLACKPINK</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/JR-wv5fOJEY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">4. 잠이 오질 않네요-장범준</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/Y7FMbWfAFTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">6. 힘든건 사랑이 아니다 - 임창정</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/LzmdGtzby2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">8. 딩가딩가 - 마마무</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/CM4CkVFmTds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="photo-content">10. I CAN'T STOP ME - 트와이스</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a aria-disabled="" href="#header">
+        <div id="to-top"></div>
+    </a>
+    
+    <div id="footer">
+        Copylight:@Senghyun<br>
+        Chart Source : <a href="https://www.melon.com/chart/index.htm" target="_blank">https://www.melon.com/chart/index.htm</a>
+    
+    </div>
+</body>
+</html>
