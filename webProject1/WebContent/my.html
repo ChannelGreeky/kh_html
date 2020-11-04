@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>이승현의 웹</title>
+<style>
+    * {
+        box-sizing: border-box;
+        color: white;
+    }
+    
+    body {
+        background-color: #000;
+        background-image: url(image/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        
+        color: rgba(255, 255, 255, 0.65);
+		font-family: 'Nanum Gothic Coding';
+        
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    #wrapper{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    h1{
+        text-align: center;
+    }
+    
+    #header-wrapper{
+        width: 100%;
+        height: auto;
+        
+    }
+    #header-border{
+        background-color: rgba(255,255,255,0.05);
+        border: 2px solid rgba(255,255,255, 0.4);
+        text-align: center;
+        border-radius: 180px;
+        width: 215px;
+        height: 215px;
+        margin: 30px auto;
+        padding: 5px;
+    }
+    
+    #header {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-image: url(image/profile.jpg);
+        background-size: cover;
+    }
+    
+    #nav-wrapper{
+        width: 100%;
+        height: 10%;
+    }
+    #nav-gnv {
+        width: 400px;
+        margin: 50px auto;
+        height: 60px;
+    }
+    
+    #nav-gnv>ul {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    #nav-gnv>ul>a>li {
+        list-style-type: none;
+        width: 25%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        line-height: 55px;
+        width: 60px;
+        margin: 0px 20px;
+        height: 100%;
+        border-radius: 180px;
+        border: 1px solid white;
+        background : rgba(255,255,255, 0.3);
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+    
+    #nav-gnv>ul>a>li:hover{
+        transform: scale(1.2);
+    }
+    #nav-gnv>ul>a>li>div{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
+    
+    #nav-gnv>ul>a>li>#facebook{
+        background-image: url(image/my/facebook2.png);
+    }
+    #nav-gnv>ul>a>li>#instargram{
+        background-image: url(image/my/instargram2.jpg);
+    }
+    #nav-gnv>ul>a>li>#git{
+        background-image: url(image/my/git2.png);
+    }
+    #nav-gnv>ul>a>li>#twiter{
+        background-image: url(image/my/twiter2.png);
+    }
+    
+    #content-wrapper{
+        width: 100%;
+        height: auto;
+    }
+    
+    #content{
+        margin: 50px auto;
+        width: 70%;
+        height: auto;
+        overflow: hidden;
+    }
+    
+    #left-content {
+        float: left;
+        width:15%;
+    }
+    
+    #right-content {
+        float: left;
+        width:15%;
+    }
+    
+    .col {
+        float: left;
+        width: 33.3%;
+        margin: auto;
+        height: 100%;
+    }
+    
+    .photo-wrapper {
+        width: 100%px;
+        height: auto;
+        margin: 30px 15px;;
+        border: 0.3px solid white;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgba(255,255,255, 0.2);
+        transition: all 0.3s;
+    }
+    
+    .photo-wrapper:hover {
+        border: 0.3px solid #ff7c96;
+        box-shadow: -0.5px -0.5px 5px #FF6382 , 0.5px 0.5px 5px #FF6382 , -0.5px -0.5px 5px #ff496e , 0.5px 0.5px 5px #ff496e;
+        background-color: rgba(255,255,255, 0.4);
+    }
+    
+    
+    .photo-wrapper:hover>.photo {
+        transform: scale(1.1);
+        
+    }
+    
+    .photo{
+        width: 100%;
+        height: 70%;
+        transition : all 0.3s;
+    }
+    
+    .photo-content {
+        text-align: center;
+        width: 100%;
+        height: 30%;
+        padding: 20px 3px;
+        margin: 5px;
+        
+    }
+    
+
+    #to-top{
+        width: 50px;
+        height: 50px;
+        border: 1px solid white;
+        border-radius: 100px;
+        background-image: url(image/my/to_top.png);
+        background-size: cover;
+        transition: 0.3s;
+        position: fixed;
+        left : 90%;
+        top : 90%;
+    }
+    
+    #to-top:hover{
+        transform: scale(1.2);
+    }
+</style>
+</head>
+<body>    
+    <div id="wrapper">
+        <div id="header-wrapper">
+            <div id="header-border">
+                <div id="header">
+                </div>
+            </div>
+            <h1>Lee Seung Hyun, 25</h1>
+            <hr>
+        </div>
+
+        <div id="nav-wrapper">
+            <div id="nav-gnv">
+                <ul>
+                    <a href="https://www.facebook.com/profile.php?id=100004768806803" target="_blank">
+                    <li>
+                        <div id="facebook">
+                        </div>
+                    </li>
+                    </a>
+
+                    <a href="https://www.instagram.com/2__sng_/?hl=ko"
+                       target="_blank">
+                    <li >
+                        <div id="instargram">
+                        </div>
+                    </li>
+                    </a>
+
+                    <a href="https://github.com/ChannelGreeky" target="_blank">
+                    <li>
+                        <div id="git">
+                        </div>
+                    </li>
+                    </a>
+                    <a href="#">
+                    <li >
+                        <div id="twiter">
+                        </div>
+                    </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        
+        <div id=content-wrapper>
+            <div id="content">
+                <div class="col">
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/1.jpg" width="100%" height="100%">
+                            <div class="photo-content">September 14, 2020 at the Times Square in Yeongdeungpo</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/2.jpg" width="100%" height="100%">
+                            <div class="photo-content">July 8, 2019 at the GyeongJu</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/3.jpg" width="100%" height="100%">
+                            <div class="photo-content">August 28, 2020 In front of my house</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/4.jpg" width="100%" height="100%">
+                            <div class="photo-content">September 28, 2020 at the Smile Cafe at Jonggak Station</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/5.jpg" width="100%" height="100%">
+                            <div class="photo-content">July 8th, 2019. In Busan.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/6.jpg" width="100%" height="100%">
+                            <div class="photo-content">January 21, 2020 in Jeju Island</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/7.jpg" width="100%" height="100%">
+                            <div class="photo-content">July 21, 2020 at the Eurwangni Beach.</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/8.jpg" width="100%" height="100%">
+                            <div class="photo-content">January 20, 2020 in Jeju Island</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/9.jpg" width="100%" height="100%">
+                            <div class="photo-content">July 21, 2020 at the Eurwangni Beach.</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/10.jpg" width="100%" height="100%">
+                            <div class="photo-content">September 28, 2020 at the SweetU Cafe</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/11.jpg" width="100%" height="100%">
+                            <div class="photo-content">January 19, 2020 in Jeju Island</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/12.jpg" width="100%" height="100%">
+                            <div class="photo-content">September 28, 2020 at the SweetU Cafe</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/13.jpg" width="100%" height="100%">
+                            <div class="photo-content">September 28, 2020 at the Smile Cafe at Jonggak Station</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/14.jpg" width="100%" height="100%">
+                            <div class="photo-content">October 13, 2020 at the SweetU Cafe</div>
+                        </div>
+                    </div>
+                    <div class="photo-wrapper">
+                        <div class="photo">
+                            <img src="image/my/15.jpg" width="100%" height="100%">
+                            <div class="photo-content">July 9, 2019 at the GyeongJu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="footer">
+            
+        </div>
+    <a id="toptop" aria-disabled=""href="#header">
+                <div id="to-top"></div>
+            </a>
+</body>
+</html>

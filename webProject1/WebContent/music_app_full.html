@@ -6,19 +6,21 @@
     
     <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gamja Flower" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@223;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Raleway:wght@223;400&family=Sunflower:wght@300&display=swap" rel="stylesheet">
 <style>
-    body{
-        font-family: 'Stylish';
-        font-size: 1.3em;
+    * {
+        box-sizing: border-box;
+        font-family: Jua;
     }
     div{
         box-sizing: border-box;
     }
     #wrapper{
         margin: auto;
-        width: 900px;
-        height: 900px;
+        width: 1600px;
+        height: 1200px;
     }
     #header{
         width: 100%;
@@ -32,15 +34,15 @@
         height: 70%;
     }
     
-    #leftcon{
-        width: 70%;
+    #leftcon {
+        width: 80%;
         height: 100%;
         float: left;
         overflow: auto;
     }
     
-    #rightcon{
-        width: 30%;
+    #rightcon {
+        width: 20%;
         height: 100%;
         float: left;
     }
@@ -50,7 +52,7 @@
         text-align: center;
     }
     
-    #login-btn{
+    #login-btn {
         text-align: right;
     }
     
@@ -124,53 +126,75 @@
         height: 80%;
         margin-top: 15px;
     }
-    
-    #nav{
+    #nav-gnv {
+        position: relative;
         width: 100%;
-        height: 5%;
-        text-align: center;
-        border: none;
-        border-radius: 15px 15px 15px 15px;
-        box-shadow: 5px 5px 5px rgba(3,0,30,0.6)
+        margin: auto;
+        height: 60px;
+        background : linear-gradient(to top, #03001e,#7303c0);
+
     }
     
-    ul {
+    #nav-gnv>ul {
         width: 100%;
         height: 100%;
         margin: 0px;
         padding: 0px;
-        border: none;
     }
     
-    ul li{
-        float: left;
-        list-style: none;
-        width: 20%;
+    #nav-gnv>ul>li {
+        list-style-type: none;
+        width: 25%;
         height: 100%;
-        line-height: 45px;
-        background : linear-gradient(to top, #03001e,#7303c0);
+        float: left;
+        text-align: center;
+        line-height: 55px;
+    }
+    
+    #nav-gnv>ul>li:hover{
+        background: linear-gradient(to top, #0C0832,#7C29B6);
+    }
+    
+    #nav-gnv>ul>li>a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
         color: white;
     }
     
-    #nav>ul li:hover {
-        background: linear-gradient(to top, #0C0832,#7C29B6);
-
+    .nav-lnv>ul {
+        margin: 0px;
+        padding: 0px;
+        height: 0px;
+        overflow: hidden;
+        transition: height 1s;
+        background : linear-gradient(to bottom, #03001e,#7303c0);
+        border-radius: 0px 0px 15px 15px;
+        opacity: 0.9;
     }
     
-    #rad1{
-        border-radius: 15px 0px 0px 15px;
+    .nav-lnv:hover>ul {
+        height: 250px;
     }
     
-    #rad2{
-        border-radius: 0px 15px 15px 0px;
+    .nav-lnv>ul>li {
+        list-style-type: none;
+        width: 100%;
+        height: 25%;
+        line-height: 60px
     }
     
-    ul li a{
+    .nav-lnv>ul>li>a {
+        display: block;
+        width: 100%;
+        height: 100%;
         text-decoration: none;
+        color: white;
     }
     
-    ul a:visited{
-        color: black;
+    .nav-lnv>ul>li:hover{
+        background: linear-gradient(to bottom, #0C0832,#7C29B6);
     }
     
     #ad-video{
@@ -184,16 +208,12 @@
     }
     #chart-h3 {
         margin-left: 10px;
-        margin-bottom: 0px;
     }
     
     #chart-table {
-        margin-left: 10px;
-        font-size: 0.8em
+        margin :5px;
     }
-    #chart-table td{
-        padding-bottom: 0px;
-    }
+    
     #chart-table button{
         width: 50px;
     }    
@@ -219,58 +239,81 @@
     <div id="wrapper">
         
         <div id="header"><img src="image/logo.png" id="main-logo"></div>
-        <div id="nav">
-            <ul>
-                <a href="#"><li id="rad1">MENU01</li></a>
-                <a href="#"><li>MENU02</li></a>
-                <a href="#"><li>MENU03</li></a>
-                <a href="#"><li>MENU04</li></a>
-                <a href="#"><li id="rad2">MENU05</li></a>
-            </ul>
-        </div>
+        <div id="nav-gnv">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="nav-lnv">
+                <a href="#">HTML5</a>
+                <ul>
+                    <li><a href="#">FORM-TAG</a></li>
+                    <li><a href="#">TABLE-TAG</a></li>
+                    <li><a href="#">BLOCK-TAG</a></li>
+                    <li><a href="#">LIST-TAG</a></li>
+                </ul>
+            </li>
+            <li class="nav-lnv">
+                <a href="#">CSS3</a>
+                <ul>
+                    <li><a href="#">FORM-TAG</a></li>
+                    <li><a href="#">TABLE-TAG</a></li>
+                    <li><a href="#">BLOCK-TAG</a></li>
+                    <li><a href="#">LIST-TAG</a></li>
+                </ul>
+            </li>
+            <li class="nav-lnv">
+                <a href="#">JavaScript</a>
+                <ul>
+                    <li><a href="#">FORM-TAG</a></li>
+                    <li><a href="#">TABLE-TAG</a></li>
+                    <li><a href="#">BLOCK-TAG</a></li>
+                    <li><a href="#">LIST-TAG</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
         <br><br>
         <div id="container">
             <div id="leftcon">
                 <div id="music-video-wrapper">
                     <div class="music-video">
                         <h4 id="music-title">1. Dynamite-방탄소년단</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/gdZLi9oWNZg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/gdZLi9oWNZg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">2. Lovesick Girls-BLACKPINK</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/dyRsYk0LyA8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/dyRsYk0LyA8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">3. DON'T TOUCH ME-환불원정대</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/zW9f47Bn6yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/zW9f47Bn6yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">4. 잠이 오질 않네요-장범준</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/JR-wv5fOJEY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/JR-wv5fOJEY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">5. 취기를 빌려-산들</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/UV_92YMQcas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/UV_92YMQcas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">6. 힘든건 사랑이 아니다-임창정</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/Y7FMbWfAFTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/Y7FMbWfAFTc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">7. 마리아-화사</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/tDukIfFzX18" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/tDukIfFzX18" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">8. 딩가딩가-마마무</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/LzmdGtzby2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/LzmdGtzby2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">9. 내 마음이 움찔했던 순간-규현</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/DePkBesa0OM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/DePkBesa0OM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="music-video">
                         <h4 id="music-title">10. I CAN'T STOP ME-트와이스</h4>
-                        <iframe width="100%" height="150" src="https://www.youtube.com/embed/CM4CkVFmTds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/CM4CkVFmTds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -285,7 +328,7 @@
                         <button>로그인</button>
                     </div>
                     <div id="pw">
-                        <input type="password" placeholder="PW를 입력하세요"> 
+                        <input type="text" placeholder="PW를 입력하세요"> 
                     </div>
                     <div id="link">
                         <a href="#">회원가입</a>
@@ -347,7 +390,8 @@
             </div>
         </div>
         <br><br>
-        <div id="footer">Copylight @Seunghyun</div>
+        <div id="footer" style="line-height:110px;">Copylight @Seunghyun</div>
+        <a href="#header">맨위로가기</a>
     </div>
 </body>
 </html>

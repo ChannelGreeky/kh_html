@@ -1,0 +1,23 @@
+@ Bootstrap4
+-> Bootstrap은 미리 디자인 되어 있는 요소들 (Button, Badge 등등)을 제공하며, 손쉽게
+반응협 웹도 구성할 수 있게 솔루션을 제시하는 Front-End Framework 
+
+※ 반응형 웹이란?
+	-> 스마트폰, 컴퓨터 모니터 등 display 장치의 크기에 따라 웹 사이트의 모습이 
+	유동적으로 변하는 웹 페이지를 만드는 기술
+
+-> 보통 기업에서는 publishing 전문가나 전담팀이 있는 경우에는 잘 사용되지 않지만,
+경량 프로젝트이거나 전문 Publisher가 부재인 경우 Back-End 개발자들도 손 쉽게 
+사용하여 웹을 만들 수 있는 Framework
+
+-> Bootstrap은 현재 인터넷상에서 3버전의 흔적들이 많지만, 3버전은 업데이트를 중단했기 때문에
+미래지향적으로 Bootstrap4를 사용하는것이 좋음
+
+-> Bootstrap4의 디자인은 가능한 Bootstrap4가 제공하는 기능을 검색해서 사용하는게 좋고,
+제공되는 기능을 찾기 어렵다면 우리가 배운 CSS를 이용해서 추가하여 사용됨
+
+※ Bootstrap4 공식 홈페이지 : https://getbootstrap.com
+
+@ Bootstrap4 환경 설정
+-> 많은 라이브러리를 사용하기 위한 설정 방법에는 download 방식과
+CDN방식 2가지가 있음
