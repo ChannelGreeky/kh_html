@@ -1,0 +1,43 @@
+@ GridSystem
+-> 반응형 웹 페이지를 만들기 위해 사용되는 Bootstrap 기법
+-> 자동으로 웹 페이지의 리소스 크기를 구조에 맞게 조정함
+
+※ 주의사항
+-> Bootstrap GridSystem을 이용하면서부터는 이미지나 컨텐츠 요소의 넓이 및 높이 값을 개발자가 임의로 지정하는 것은 좋지 않음 
+( 개발자가 임의로 지정한 넓이, 높이 값은 Bootstrap의 자동 반응형 구성에 방해요소가 될 수 있음)
+-> 리소스의 넓이와 높이 값은 반응형 처리를 위한 GridSystem에 맡겨 두는것이 좋음
+
+
+## container와 container-fluid
+-> Bootstrap GridSystem으로 구성하기 위해서는 최상위 div에 클래스 이름을
+container 또는 container-fluid 라고 부여해야 한다.
+-> container는 브라우저 전체의 약 80~90% 넓이를 유지
+	- 너비가 767px 이하에서는 100%
+	- 768px 이상에서는 750px
+	- 992 이상에서는 970px
+	- 1200px 이상에서는 1170px
+-> container-fluid는 브라우저 넓이의 100%를 유지
+(둘 중 어떤것을 선택할지는 페이지를 개발하는 개발자가 원하는 화면구성에 따라 선택)
+
+
+## row와 col
+-> container div밑으로는 table태그처럼 행(row)과 열(col)로 구성하는 layout
+-> 각 행은 반드시 class 이름으로 row를 가져야 함
+-> row class를 명시한 div안에는 col이라는 class이름을 가져야 함
+(이 규칙을 어길 경우 반응형으로 정상작동 하지 않음)
+-> col의 이름을 명시할 경우 뒤에 몇 칸을 차지할 지를 명시해야 함
+(1개의 행(row)은 총 12개의 열(col)을 가지고 있고, col-4라고 하면 4개의 열을 병합하여 사용)
+-> 몇칸을 병합하여 사용할 지는 개발자의 자유 의지
+
+## bootstrap에서 처리되는 브라우저의 너비 (5단계)
+extra small 	-> 표기 없음	ex) col-4		: 브라우저 너비가 576미만
+small		-> sm		ex) col-sm-4	: 브라우저 너비가 576~767px
+medium		-> md		ex) col-md-4	: 브라우저 너비가 768~991px
+large		-> lg		ex) col-lg-4	: 브라우저 너비가 992~1199px
+extra large	-> xl		ex) col-xl-4	: 브라우저 너비가 1200px 이상
+
+ex) 작성법 예시
+<div class="col-sm-4 col-md-6"></div>
+-> 575 까지는 한칸이 12칸을 차지하다가 (사이즈 미표기시 col은 default로 12칸을 잡음)
+576px (small) 이상부터는 4칸을 차지
+768px (medium) 이상부터는 6칸을 차지하라는 설정
