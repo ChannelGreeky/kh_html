@@ -1,0 +1,225 @@
+
+@ JavaScript (자바스크립트)
+-> 기존 HTML은 똑똑하지 못한 언어
+-> 계산도 못하고, 누군가가 form(폼)을 정확하게 채웠는지도 알 수 없고,  클라이언트의
+행동에 따른 결정을 내릴 수도 없음
+(HTML5는 기존 단순한 HTML보다 기능이 다양해지긴 했지만 부족한건 사실임)
+-> 자바 스크립트는 웹 페이지가 지능적으로 동작할 수 있도록 구현할 수 있음
+-> 자바 스크립트를 이용하면 사용자들이 form(폼)에서 필수 정보를 빠뜨렸는지도 알려 줄 수 있는
+똑똑한 웹 폼을 만들수도 있음
+-> 웹에 다양한 기능을 넣어서 만들고 싶을경우에는 자바스크립트가 필수 요소임
+(과거 자바스크립트보다 많이 발전하여 현재는 다양한 자바스크립트가 등장 하였음)
+
+@ Front End 주요 언어 (브라우저에서 작동하는 언어)
+- HTML
+	-> 하이퍼 텍스트를 구현하기 위한 뼈대가 되는 핵심적인 기술인 마크업 언어
+
+- CSS	
+	-> HTML이 뼈대라면 CSS는 뼈대를 꾸미기 위한 속성들
+	-> Bootstrap 등을 이용하여 구조를 잡을 수 있음
+
+- JavsScript 
+	-> HTML이 정적인 작동에 반해 동적인 작동을 할 수 있는 언어
+
+- jQuery
+	-> JavaScript의 코드가 길어지면서 사용하기 복잡해지는 단점을 파격적으로 
+	개선한 언어
+	-> 존 레식(John Resig)이 창안한 JavaScript 기반의 라이브러리 라고 볼 수 있음
+
+@ 자바스크립트 선언
+-> <script> </script>를 선언하여 사용
+	(<script> ~ </script> 사이가 자바스크립트 작성 영역
+-> 시작시 type 값을 통해 브라우저에 자바스크립트라는 것을 알려줌
+	(type값을 입력하지 않아도 default로 javaScript 라는 것을 알려주기 때문에
+	미작성 하여도 됨)
+
+ex) 
+<script type="text/javascript">
+	alert("Hello JavaScript");
+</script>
+
+혹은
+<script>
+	alert("Hello JavaScript");
+</script>
+
+-> 자바스크립트 코드는 html태그 영역 밖에서 작성이 가능하지만
+웹 표준상 <head> 태그나 <body> 태그 안에 작성
+
+@ JavaScript 작성 방식
+
+1. inline 방식
+-> HTML 페이지 내에서 작성하고, 자바스크립트와 HTML 코드가 연결되어 있는 방식
+-> HTML 태그안에 자바스크립트가 있거나 페이지 내에 자바스크립트를 호출하는 방식
+
+2. internal 방식
+-> HTML 페이지내에서 작성하지만, 자바스크립트 코드와 HTML 코드가 연결되어 있지 않는 방식
+
+3. external 방식
+-> 자바스크립트의 양이 많은 경우 자바스크립트 코드 부분을 외부 파일로 저장하여 작성하는 방식
+-> <script src="경로"> </script> 태그를 이용하여 내용을 삽입 후 사용함
+
+
+
+
+## inline 방식 예제 ##
+
+   <script>
+        function myClick()
+        {
+            alert("오호!! 클릭 성공!");
+        }
+    </script>
+    <button onclick="javascript:alert('Hello');">클릭하세요</button>
+    <button onclick="myClick();">클릭하세요2</button>
+
+
+## internal 방식 예제 ##
+
+ex) 요소(태그) 밑에 작성하는 방식
+
+   <button id="btn">internal 방식 버튼</button>
+<script>
+   var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                alert("오호!! 클릭 성공!");
+            }
+</script>
+ex) window.onload를 이용한 방식
+
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                alert("오호!! 클릭 성공!");
+            }
+        }
+    </script>
+
+
+    <button id="btn">internal 방식 버튼</button>
+
+## external 방식 ##
+
+ex) 외부 javaScript 파일 내부 (경로가 WebContent/common/js/test.js 일때) 
+    window.onload = function(){
+    document.getElementById("btn").onclick  = function (){
+        alert("Hello");
+	}
+}
+
+ex) html 파일 내부
+
+    <script src="./common/js/test.js"></script>
+    <button id="btn">internal 방식 버튼</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@ JavaScript 실행 방식
+-> 웹 브라우저에 내장되어 있는 JavaScript Parser가 소스코드를 한 줄 씩 읽고
+해석 한다는 점에서 인터프리터 방식으로 소스코드를 해석 함
+(전체 코드를 해석하여 처리하는 컴파일 방식과는 다른 방식)
+-> Ecma 스크립트 표준을 따르는 대표적인 웹 기술 방식
+
+
+## 자바스크립트를 이용하여 출력하기 위한 함수 ##
+
+# document.write (내용);
+-> 브라우저 화면상의 해당 내용을 출력 함 
+
+# window.alert(내용);
+-> 메시지 알림창을 통해 출력 
+	(window 객체는 모두 적용되는것이기 때문에 생략하여 사용 가능 )
+	ex) alert(내용);
+
+# innerHTML = 내용;
+-> 태그 엘리먼트의 내용(태그와 태그사이의 값)을 변경하여 출력
+
+# console.log(내용);
+-> F12를 누르면 개발자도구가 나오는데, 그 개발자 도구의 console 화면에 출력
+
+
+
+ex) document.write ()
+
+    <script>
+        function test(){
+            
+            var table = " <table border='1px'>"+
+                        "<tr>  "+
+                        "<th>이름</th>" +
+                        "<th>나이</th>" +
+                        "<th>주소</th>"+
+                        " </tr>"+
+                        "<tr>"+
+                        "<td>홍길동</td>"+
+                        "<td>20</td>"+
+                        "<td>경기도</td>  "+
+                        "</tr>"+
+                        "</table>";    
+    
+            document.write(table);
+        }
+    </script>
+    <button onclick="test();">저를 클릭하세요</button>
+
+ex) alert()
+
+<script>
+        function test(){
+          alert("alert창을 이용하여 출력");
+        }
+    </script>
+    <button onclick="test();">저를 클릭하세요</button>
+
+
+ex) innerHTML = 내용   / innerTEXT = 내용
+-> innerHTML은 태그와 태그 사이에 문자열을 넣어주되 문자열의 태그가 포함되어 있으면
+	태그로 처리하여 넣어 줌
+-> innerTEXT은 태그와 태그 사이에 문자열을 넣어주되 문자열의 태그가 포함되어 있어도
+	모두 문자열로 처리 하여 넣어 줌 (태그 처리 안됨)
+
+
+    <p id="print" style="width:300px;height:300px;border:1px solid red;"></p>
+    <input type="text" id="input"/>
+    <button onclick="test();">클릭</button>
+
+    <script>
+        function test()
+        { 
+            var print = document.getElementById("print");
+            var inputData = document.getElementById("input").value;
+            
+            print.innerText = inputData;
+            //print.innerHTML = inputData;
+        }
+    </script>
+
+
+## 데이터 입력 방법 ##
+-> 자바스크립트 내장객체인 window 객체가 제공하는 confirm(), prompt() 메소드를
+사용하여 브라우저를 통해 입력 받을 수 있음
+-> 또한, HTML에 있는 input 태그들을 이용하여도 입력 받을 수 있음
+	(ex. document.getElementById("input").value)
+-> 또 다른 방법으로는 HTML 태그에 접근하여 대상의 값 자체를 읽어 올수도 있음
+	(ex. document.getElementById("P1").innerHTML)
+
+## window.confrim()
+-> 어떤 질문에 대해 "예/아니오" 의 결과를 얻을 때 사용
+-> 대화창에 메시지와 확인, 취소 버튼 표시
+-> 리턴값은 확인(true) / 취소(false)
+
+형식
+var 변수 = [window.]confirm("질의내용");
+-> 변수에 true or false가 담기게 됨

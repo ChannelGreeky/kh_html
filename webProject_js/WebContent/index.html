@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+    <style>
+        #print {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+<body>
+<!--    <script src="./common/js/test.js"></script>-->
+
+
+    <script>
+//        var table = "<table border='1px'>" +
+//            "<tr>" +
+//            "<td>이름</td>" +
+//            "<td>나이</td>" +
+//            "<td>주소</td>" +
+//            "</tr>" +
+//            "<tr>" +
+//            "<td>홍길동</td>" +
+//            "<td>20</td>" +
+//            "<td>경기도</td>" +
+//            "</tr>" +
+//            "</table>"
+//
+//        function test() {
+//            document.write(table)
+//        }
+    
+        function test() {
+            var result = confirm("행복을 원하십니까?");
+            if(result) {
+                alert("당신이 태어난 것 자체가 행복입니다.");
+            } else {
+                alert("당신은 이미 행복하군요!!");
+            }
+        }
+        function test2() {
+            var result = prompt("행복을 원하십니까?");
+            
+             var print = document.getElementById("p1");
+            if(result) {
+                alert("당신이 태어난 것 자체가 행복입니다.");
+            } else {
+                alert("당신은 이미 행복하군요!!");
+            }
+        }
+    </script>
+    
+    
+    <button onclick="test();">클릭</button>
+    <button onclick="test2();">클릭</button>
+    <p id="p1"></p>
+<!--    <button onclick=test();>클릭</button>-->
+</body></html>
