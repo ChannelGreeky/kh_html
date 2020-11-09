@@ -1,0 +1,38 @@
+@ JavaScript를 이용한 HTML 태그에 접근
+-> 자바스크립트를 이용하여 HTML을 통적으로 처리하기 위해서는
+특정한 함수를 이용하여 HTML 태그에 접근할 수 있음
+
+@ 태그 접근 함수
+
+# getElementById("아이디명")
+-> 태그의 ID 속성 값을 이용해 태그 엘리먼트 객체 정보를 가져 옴(1개)
+
+## document.getElementById()
+-> ID를 이용하여 1개의 요소를 가져오는 함수
+
+
+# getElementsByName("이름명")
+-> 태그의 name 속성 값을 이용해서 태그 엘리먼트의 객체 정보를 배열에 담아서 가져옴
+-> 같은 이름의 태그가 여러 개 존재할 수 있기 때문에 기본적으로 배열로 리턴
+
+## document.getElementsByName()
+-> name의 속성값이 일치하는 요소를 가져옴 
+-> name은 중복이 가능하기 때문에 여러개의 요소가 선택될 수 있어서
+리턴값은 배열형태로 가져옴
+
+
+# getElementsByTagName("태그명")
+-> 태그명을 이용해서 해당 태그들의 객체 정보를 배열에 담아서 가져옴
+
+## document.getElementsByTagName()
+-> HTML 태그의 태그명을 이용해서 태그들을 한꺼번에 가져와서 배열에 담아 리턴
+
+
+@ css 접근
+-> style이라는 변수를 통하여 css값을 변경할 수 있음
+
+@ value와 innerHTML
+-> javaScript에서는 value와 innerHTML을 가지고 데이터를 가져올 수 있음
+-> innerHTML은 태그와 태그사이에 값을 가져올 때 사용
+-> value는 input 태그 안에 들어있는 값을 가져올 때 사용
+

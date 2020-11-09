@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <script>
+        function test() {
+            var print = document.getElementById("print");
+            
+            print.innerHTML += "3+4 : "+(3+4)+"<br>";
+            print.innerHTML += "3+\"4\" : "+"\"34\""+"<br>";
+            print.innerHTML += "3+parseInt(\"3\") : " + (3+parseInt("3"))+"<br>";
+            print.innerHTML += "3+Number(\"3\") : " + (3+Number("3"))+"<br>";
+        }
+        
+        function reset() {
+            var print = document.getElementById("print");
+            print.innerHTML = "";
+        }
+
+
+    </script>
+
+    <div id="print" style="width:500px; height:300px; border: 1px solid red; overflow:scroll;"></div>
+
+    <button onclick="test();">결과확인</button>
+    <button onclick="reset();">리셋</button>
+
+
+</body></html>

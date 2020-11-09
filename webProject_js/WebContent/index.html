@@ -34,28 +34,33 @@
 //        }
     
         function test() {
-            var result = confirm("행복을 원하십니까?");
-            if(result) {
-                alert("당신이 태어난 것 자체가 행복입니다.");
-            } else {
-                alert("당신은 이미 행복하군요!!");
-            }
+            var pp = document.getElementsByName("pp");
+            console.log(pp);
+            console.log(pp[0]);
+            console.log(pp[1]);
+            console.log(pp[2]);
+            console.log(pp[0].innerHTML);
         }
+        
         function test2() {
-            var result = prompt("행복을 원하십니까?");
+            var p = document.getElementsByTagName("p");
             
-             var print = document.getElementById("p1");
-            if(result) {
-                alert("당신이 태어난 것 자체가 행복입니다.");
-            } else {
-                alert("당신은 이미 행복하군요!!");
-            }
+            console.log(p);
+        }
+        
+        function test3() {
+            var p1 = document.getElementById("p1");
+            p1.style.backgroundColor = "red";
+        }
+        
+        function test4() {
+            var p1 = document.getElementById("p1");
+            p1.style.backgroundColor = "blue";
         }
     </script>
     
-    
-    <button onclick="test();">클릭</button>
-    <button onclick="test2();">클릭</button>
-    <p id="p1"></p>
+    <p id="p1" style="width:300px; height:300px; border: 1px solid black;">Test0</p>
+    <button onclick="test3();">클릭</button>
+    <button onclick="test4();">클릭2</button>
 <!--    <button onclick=test();>클릭</button>-->
 </body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>연산자</h1>
+
+	<h3>문제1. 연산자를 이용한 짧은 조건문 사용 테스트 (|| 와 &&를 사용하세요)</h3>
+	<button onclick="checkLogic();">실행확인</button>
+
+	<script type="text/javascript">
+		function checkLogic(){
+			var input = Number(window.prompt("숫자를 입력하시오."));
+				
+			//짧은 조건문 : || 는 거짓이면 실행, &&는 참이면 실행
+			input % 2 == 0 || alert("홀수입니다.");
+			input % 2 == 0 && alert("짝수입니다.");
+		}
+	</script>
+	<br><br>
+	<hr><hr>
+	<br><br>
+	<h3>문제2. 다음 중 이쁜 사람은 누구인가요?<h3>
+	
+	<img src="jj.jpg" height="200px" width="200px" onclick="choice('jj');"/> 
+	<img src="ss.jpg" height="200px" width="200px" onclick="choice('ss');"/>
+	
+	<script>
+	function choice(value)
+	{
+		var arr = document.getElementsByTagName('img');
+		if(value=='jj')
+		{
+			arr[0].style.height="400px";
+			arr[0].style.width="400px";
+            arr[0].style.border="10px dotted red";
+			arr[1].style.display="none";
+		}
+		else
+		{
+			arr[1].style.height="400px";
+			arr[1].style.width="400px";
+            arr[1].style.border="10px dotted blue";
+			arr[0].style.display="none";
+		}
+	}
+	</script>
+	
+</body>
+</html>

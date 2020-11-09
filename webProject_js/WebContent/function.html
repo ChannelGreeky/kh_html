@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <script>
+        function test() {
+//            var p1 = document.getElementById("p1");
+            var print = document.getElementById("print");
+
+//            var result = p1.innerHTML.toUpperCase();
+//            print.innerHTML += "toUpperCase : " + result + "<br>";
+//
+//            var result = p1.innerHTML.toLowerCase();
+//            print.innerHTML += "toLowerCase : " + result + "<br>";
+//
+//            var result = p1.innerHTML.length;
+//            print.innerHTML += "length : " + result + "<br>";
+//
+//            var result = p1.innerHTML.indexOf("u");
+//            print.innerHTML += "indexOf : " + result + "<br>";
+//
+//            var result = p1.innerHTML.lastIndexOf("u");
+//            print.innerHTML += "lastIndexOf : " + result + "<br>";
+//
+//            var result = p1.innerHTML.charAt(3);
+//            print.innerHTML += "charAt(3) : " + result + "<br>";
+//
+//            var result = p1.innerHTML.substring(3, 8);
+//            print.innerHTML += "charAt(3) : " + result + "<br>";
+//
+//            var result = p1.innerHTML.split(",");
+//            print.innerHTML += "split : " + result[0] + "<br>";
+//            var result = Math.abs(-4.7);
+//            print.innerHTML += "abs : " + result + "<br>";
+//            var randomNum = Math.floor(Math.random()*100)+1;
+//            print.innerHTML += "random : " + randomNum + "<br>";
+//            var result = Math.floor(4.7);
+//            print.innerHTML += "floor : " + result + "<br>";
+//            var result = Math.round(4.7);
+//            print.innerHTML += "round : " + result + "<br>";
+//            var result = Math.ceil(4.7);
+//            print.innerHTML += "ceil : " + result + "<br>";
+//
+//            console.log(randomNum > 50);
+            var person = {name:"홍길동", age:20, addr:"경기도"};
+            var test1;
+            var test2 = function(){
+                
+            }
+            print.innerHTML += "문자열 : " + typeof("Hello") + "<br>";
+            print.innerHTML += "정수형 : " + typeof(10) + "<br>";
+            print.innerHTML += "불린형 : " + typeof(10>5) + "<br>";
+            print.innerHTML += "객체형 : " + typeof(person) + "<br>";
+            print.innerHTML += " : " + typeof(test1) + "<br>";
+            print.innerHTML += "문자열 : " + typeof(test2) + "<br>";
+            
+        }
+        
+        function reset() {
+            var print = document.getElementById("print");
+            print.innerHTML = "";
+        }
+
+        //        }
+        //        function idChange() {
+        //            var id = document.getElementById("la1");
+        //            id.innerHTML = "ID : ";
+        //        }
+        //
+        //        function passChange() {
+        //            var password = document.getElementById("pwd");
+        //
+        //            password.type = "password";
+        //        }
+        //
+        //        function nameChange() {
+        //            var name = document.getElementById("name");
+        //            name.placeholder = "이름을 입력하세요";
+        //        }
+        //
+        //        function addrChange() {
+        //            var addr = document.getElementById("addr");
+        //            addr.size = "50";
+        //        }
+        //        
+        //        function formPrint() {
+        //            var form = document.getElementsByTagName("input");
+        //            window.alert("ID : " + form[0].value + "\n" +
+        //                        "PWD : " + form[1].value + "\n" +
+        //                        "이름 : " + form[2].value + "\n" +
+        //                        "주소 : " + form[3].value + "\n");
+        //        }
+    </script>
+    <!--
+    문제1<br>
+    보기에 있는 "이름 : " -> "ID : " 으로 변경 되도록 하여라.<br>
+    <button onclick="idChange();">도전</button><br><br>
+    문제2<br>
+    현재는 패스워드 입력시 비밀번호가 노출되는 형태이다.<br>
+    비밀번호 입력시 비밀번호가 노출되지 않도록 만들어라.<br>
+    <button onclick="passChange();">도전</button><br><br>
+    문제3<br>
+    name의 기본 노출값이 이상하다! 기본 노출값이 "비밀번호를 입력하세요"가 아닌<br>
+    "이름을 입력하세요"로 변경하시오<br>
+    <button onclick="nameChange();">도전</button><br><br>
+    문제4<br>
+    addr의 주소 입력창이 너무 짧다! 최대 50글자를 입력할 수 있도록<br>
+    입력바를 길게 만들어라.<br>
+    <button onclick="addrChange();">도전</button><br><br>
+    문제5<br>
+    보기에 있는 필드에 내용을 작성하고<br>
+    작성된 내용을 모두 가져와서 alert창에 출력하시오<br>
+    단, getElementById를 사용하지 말고 처리하시오<br>
+    ex)<br>
+    ID : XXX<br>
+    PW : XXXXXX<br>
+    이름 : XXX<br>
+    주소 : XXXXXXXXX<br>
+    <button onclick="formPrint();">도전</button><br><br>
+-->
+    <div id="print" style="width:500px; height:300px; border: 1px solid red; overflow:scroll;"></div>
+
+<!--    <p id="p1">LeeSeungHyun, 인천, 부평</p>-->
+    <button onclick="test();">결과확인</button>
+    <button onclick="reset();">리셋</button>
+
+
+</body></html>

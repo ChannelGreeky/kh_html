@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <script>
+        function test() {
+            var print = document.getElementById("print");
+
+            var num1 = 1;
+            var num2 = "1";
+            print.innerHTML += "num1 == num2 -> " + (num1 == num2) + "<br>";
+            print.innerHTML += "num1 === num2 -> " + (num1 === num2) + "<br>";
+            print.innerHTML += "num1 != num2 -> " + (num1 != num2) + "<br>";
+            print.innerHTML += "num1 !== num2 -> " + (num1 !== num2) + "<br>";
+
+            num1 == 1 || (print.innerHTML += "num == 1 || 짧은조건문 실행!<br>");
+            num1 == 2 || (print.innerHTML += "num == 2 || 짧은조건문 실행!<br>");
+            num1 == 1 && (print.innerHTML += "num == 1 && 짧은조건문 실행!<br>");
+            num1 == 2 && (print.innerHTML += "num == 2 && 짧은조건문 실행!<br>");
+        }
+
+        function reset() {
+
+            var print = document.getElementById("print");
+
+            print.innerHTML = "";
+        }
+    </script>
+
+    <div id="print" style="width:500px; height:300px; border: 1px solid red; overflow:scroll;"></div>
+
+    <button onclick="test();">결과확인</button>
+    <button onclick="reset();">리셋</button>
+
+
+</body></html>

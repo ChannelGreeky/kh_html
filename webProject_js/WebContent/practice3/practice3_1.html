@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <h1>연산자</h1>
+    <h3>문제1. 연산자를 이용한 짧은 조건문 사용 테스트 (||와 &amp;&amp;를 사용하세요)</h3>
+    <button onclick="test1();">실행확인</button>
+    <br><br>
+    <hr>
+    <hr><br><br><br>
+
+    <h3>문제2. 다음 중 이쁜 사람은 누구인가요?</h3>
+    <div id="jj" onclick="test2('jj')" style="width:200px; height:200px; float:left; margin-right:10px;">
+        <img src="./common/image/jj.jpg" width="100%" height="100%">
+    </div>
+    <div id="ss" onclick="test2('ss')" style="width:200px; height:200px; float:left;">
+        <img src="./common/image/ss.jpg" width="100%" height="100%">
+    </div>
+    <script>
+        function test1() {
+            var inputNum = prompt('숫자를 입력하세요');
+
+            if (inputNum % 2 == 0) {
+                alert("짝수입니다.");
+            } else {
+                alert("홀수입니다.");
+            }
+
+        }
+
+        function test2(name) {
+            jj = document.getElementById("jj");
+            ss = document.getElementById("ss");
+            if (name == "jj") {
+                ss.style.display = "none";
+
+                jj.style.width = "500px";
+                jj.style.height = "500px";
+                jj.style.border = "20px dotted red";
+            } else if (name == "ss") {
+                jj.style.display = "none";
+
+                ss.style.width = "500px";
+                ss.style.height = "500px";
+                ss.style.border = "20px dotted blue";
+            }
+
+        }
+    </script>
+
+
+
+</body></html>

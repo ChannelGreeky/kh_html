@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>데이터 입/출력</title>
+<script type="text/javascript">
+	/* function start(){
+		alert("문서가 로딩되었습니다.");
+	} */
+</script>
+<style>
+	.area {
+		width:300px;
+		height:100px;
+		border:1px solid black;
+	}
+</style>
+</head>
+<body>
+	<h1>자바스크립트의 데이터 입/출력</h1>
+	<!-- <script type="text/javascript">
+		document.write("document.writer()로 출력함");
+		alert("출력 문구를 실행하였습니다.");
+	</script> -->
+	
+	<br>
+	
+	<h3>innerHTML로 요소의 내용 변경하기</h3>
+	<div id="area1">자바스크립트에서 태그 앨리먼트의 값을 읽어가거나, 값을 변경할 때 innerHTML 속성을 사용함.</div><br>
+	<button onclick="checkValue();">innerHTML 확인</button>
+	
+	<script type="text/javascript">
+		function checkValue(){
+			var divEl = document.getElementById("area1");
+			alert(divEl.innerHTML);
+			divEl.innerHTML = "innerHTML 속성으로 값 변경함";
+		}
+	</script>
+	
+	<hr>
+	
+	<h3>console.log()로 개발자도구 콘솔화면에 출력하기</h3>
+	<p>개발자도구 콘솔화면에 출력을 하고자 할 때 사용하며, 디버깅 할 때 주로 사용된다.</p>
+	<button onclick="printConsole();">콘솔에 내용 출력</button>
+	<script>
+		function printConsole(){
+			window.console.log('콘솔화면에 출력하기');
+			
+		}
+	</script>
+	
+	<hr>
+	
+	<h3>window.confirm()을 이용한 데이터 입력</h3>
+	<p>어떤 질문에 대해 "예/아니오"의 결과를 얻을 때 사용한다.</p>
+	<p>확인 버튼과 취소버튼이 나타나며, 확인버튼을 클릭시 true, 취소버튼을 클릭시 false를 리턴한다.</p>
+	<button onclick="checkGender();">성별 확인하기</button>
+	<div id="area2" class="area"></div>
+	<script>
+		function checkGender(){
+			var result = confirm("남자면 확인, 여자면 취소 버튼을 눌러주세요");
+			//콘솔에서 리턴 값 확인해보기
+			console.log(result);
+			
+			var gender = "";
+			
+			if(result == true){
+				gender = "남자";
+			}else {
+				gender = "여자";
+				
+			}
+			
+			console.log(gender);
+			
+			var area2 = document.getElementById("area2");
+			area2.innerHTML += "당신은 " + gender + "입니다.<br>";
+						
+		}
+	</script>
+	
+	<hr>
+	
+	<h3>window.prompt()를 이용한 데이터 입력</h3>
+	<p>텍스트필드와 확인/취소버튼이 있는 대화상자 출력하고 입력한 메세지 내용을 리턴값으로 돌려받는다.</p>
+	<button onclick="testPrompt()">이름입력</button>
+	<div id="area3" class="area"></div>
+	<script>
+		function testPrompt(){
+			var result = window.prompt("당신의 이름은 무엇인가요?");
+			
+			var area3 = document.getElementById("area3");
+			area3.innerHTML += "앗! 당신이 바로 " + result + "군요.. 반갑습니다."
+		}
+	</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
