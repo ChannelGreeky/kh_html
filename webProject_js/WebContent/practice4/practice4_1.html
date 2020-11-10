@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <h1>배열 실습 문제 1</h1>
+    <p>문제1. 다음 보기에 있는 데이터들은 배열로 받고 하나의 배열로 합치도록 하여라<br>이때 입력 필드에 배열에 있는 데이터를 전송하면 배열의 alert를 통하여<br>위치를 알려주고, 없으면 "존재하지 않습니다"를 알려주어라</p>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label><br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+        <label id="la3">환타,사이다,콜라</label><br>
+        <label id="la4">고양이,강아지</label><br>
+    </fieldset><br>
+    <input type="text" size=100 placeholder="찾을 문자열을 입력하세요" id="search_data" /><br>
+    <button onclick="test1()">전송 및 처리</button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+    
+    <p>문제2. 다음 보기에 있는 문자열을 가지고 정답과 같이 만들어라. (별도의 문자열을 쓰면 안됨)<br>그리고 출력 부분에 출력하도록 하여라. 정답 : "mslove"</p>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="string1">s m</label><br>
+        <label id="string2">e v o l</label><br>
+    </fieldset><br>
+
+    <p id="answer-2" style="border:1px solid red;">이 부분에 정답이 출력될 수 있도록 하세요</p>
+    <button onclick="test2()">처리</button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+    
+     <p>문제3. 다음 문자열을 입력 받은 후 출력 버튼 클릭시 모든 입력한 문자열이 출력되도록 만들어라.</p>
+    <fieldset>
+        <legend>보기</legend>
+        <input type="text" id="inputData" />
+        <button onclick="test3()">입력</button>
+    </fieldset><br>
+
+    <p id="answer-3" style="border:1px solid red;">이 부분에 정답이 출력될 수 있도록 하세요</p>
+    <button onclick="test3_print()">출력</button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+    <script>
+        function test1() {
+            var arr1 = document.getElementById("la1").innerHTML.split(",");
+            var arr2 = document.getElementById("la2").innerHTML.split(",");
+            var arr3 = document.getElementById("la3").innerHTML.split(",");
+            var arr4 = document.getElementById("la4").innerHTML.split(",");
+            
+            var data = arr1.concat(arr2, arr3, arr4);
+
+            var input = document.getElementById("search_data").value;
+
+            if (data.indexOf(input) >= 0) {
+                alert(input + "은 index " + data.indexOf(input) + "번째에 있습니다.");
+            } else {
+                alert("존재하지 않습니다.");
+            }
+        }
+        
+        function test2() {
+            var arr1 = document.getElementById("string1").innerHTML.split(" ");
+            var arr2 = document.getElementById("string2").innerHTML.split(" ");
+            
+            var data = arr1.reverse().concat(arr2.reverse()).join("");
+            
+            document.getElementById("answer-2").innerHTML = data;
+        }
+        
+        var arr = new Array();
+        function test3() {
+            var data = document.getElementById("inputData").value;
+             
+            arr.push(data);
+            
+            document.getElementById("inputData").value = "";
+         }
+        
+        function test3_print() {
+            document.getElementById("answer-3").innerHTML = arr.join(",");
+        }
+    </script>
+
+
+
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <h1>배열 실습 문제 3</h1>
+    <br><br>
+    <p>문제5. 다음 보기의 그림을 클릭하면 그림이 사라지고 그림을 모두 클릭하면 클릭한 순서대로 그림이 나올수 있도록 만들어라.<br>
+        (힌트1 : 태그 자체를 가져올때에는 outerHTML을 사용하면 됨)<br>
+        (힌트2 : 자바스크립트에서 해당 요소(태그)의 CSS값을 사용할때에는 style을 사용)<br>
+        ex) document.getElementById(ID).style.backgroundColor<br>
+    </p>
+    <fieldset id="field">
+        <legend>보기</legend>
+        <div onclick="test5('blue')" id="blue" style="border:1px solid black; width:100px; height:100px; background-color:blue; float:left;"></div>
+        <div onclick="test5('pink')" id="pink" style="border:1px solid black; width:100px; height:100px; background-color:pink; float:left;"></div>
+        <div onclick="test5('red')" id="red" style="border:1px solid black; width:100px; height:100px; background-color:red; float:left;"></div>
+        <div onclick="test5('green')" id="green" style="border:1px solid black; width:100px; height:100px; background-color:green; float:left;"></div>
+        <div onclick="test5('yellow')" id="yellow" style="border:1px solid black; width:100px; height:100px; background-color:yellow; float:left;"></div>
+    </fieldset><br>
+    <fieldset>
+        <legend>Next Print List</legend>
+        <p id="p1"></p>
+    </fieldset>
+
+    <script>
+        
+        var arr = new Array();
+        var count = 0;
+        function test5(color) {
+            switch(color){
+                case 'blue' :
+                    document.getElementById("p1").innerHTML += document.getElementById(color).style.backgroundColor+" ";
+                    document.getElementById(color).style.display = "none";
+                    arr.push(document.getElementById(color).style.backgroundColor);
+                    count++;
+                    break;
+                case 'pink' :
+                    document.getElementById("p1").innerHTML += document.getElementById(color).style.backgroundColor+" ";
+                    document.getElementById(color).style.display = "none";
+                    arr.push(document.getElementById(color).style.backgroundColor);
+                    count++;
+                    break;
+                case 'red' :
+                    document.getElementById("p1").innerHTML += document.getElementById(color).style.backgroundColor+" ";
+                    document.getElementById(color).style.display = "none";
+                    arr.push(document.getElementById(color).style.backgroundColor);
+                    count++;
+                    break;
+                case 'green' :
+                    document.getElementById("p1").innerHTML += document.getElementById(color).style.backgroundColor+" ";
+                    document.getElementById(color).style.display = "none";
+                    arr.push(document.getElementById(color).style.backgroundColor);
+                    count++;
+                    break;
+                case 'yellow' :
+                    document.getElementById("p1").innerHTML += document.getElementById(color).style.backgroundColor+" ";
+                    document.getElementById(color).style.display = "none";
+                    arr.push(document.getElementById(color).style.backgroundColor);
+                    count++;
+                    break;
+            }
+            
+            console.log(arr);
+            if(count == 5) {
+                document.getElementById("field").innerHTML = "<div onclick=\"test5('blue')\" id=\"blue\" style=\"border:1px solid black; width:100px; height:100px; background-color:"+arr[0]+"; float:left;\"></div><div onclick=\"test5('pink')\" id=\"pink\" style=\"border:1px solid black; width:100px; height:100px; background-color:"+arr[1]+"; float:left;\"></div><div onclick=\"test5('red')\" id=\"red\" style=\"border:1px solid black; width:100px; height:100px; background-color:"+arr[2]+"; float:left;\"></div><div onclick=\"test5('green')\" id=\"green\" style=\"border:1px solid black; width:100px; height:100px; background-color:"+arr[3]+"; float:left;\"></div><div onclick=\"test5('yellow')\" id=\"yellow\" style=\"border:1px solid black; width:100px; height:100px; background-color:"+arr[4]+"; float:left;\"></div>";
+                
+                count = 0;
+                
+                document.getElementById("p1").innerHTML = "";
+                
+      
+                arr.pop(); 
+                arr.pop();
+                arr.pop();
+                arr.pop();
+                arr.pop();
+            }
+            
+        }
+    </script>
+
+
+
+</body>
+
+</html>

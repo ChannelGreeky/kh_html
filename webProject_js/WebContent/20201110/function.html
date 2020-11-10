@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <button onclick="test(10,'이승현이승현')">버튼</button>
+    <br><br>
+    <form action="./function2.html" method="get" onsubmit="return check();">
+        id : <input type="text" id="userId" /><br>
+        pw : <input type="password" id="userPw" /><br>
+        <input type="submit" value="로그인" />
+    </form>
+    <script>
+        test1();
+
+
+        function test1() {
+            alert(arguments[0]);
+            alert(arguments[1]);
+        }
+    
+        function check() {
+            var userId = document.getElementById("userId").value;
+            var userPw = document.getElementById("userPw").value;
+            if(userId == ""){
+                alert("ID를 입력하여 주십시오.");
+                return false;
+            } else if(userPw == ""){
+                alert("PW란은 공란일 수 없습니다.");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        function test1() {
+            alert("test1");
+        }
+        
+        var test2 = function() {
+            alert("test2");
+        }
+        
+        test2();
+        
+        (function () { alert("익명익명함수함수"); })();
+        
+    </script>
+</body></html>

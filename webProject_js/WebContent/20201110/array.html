@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <input type="text" id="basic_inputData" />&nbsp;<button onclick="test();">ARR_BASIC</button><br><br>
+
+    <input type="text" id="index_inputData" />&nbsp;
+    <button onclick="arr_indexOf()">indexOf</button><br><br>
+
+    <button onclick="arr_concat();">ARR_CONCAT</button><br><br>
+
+    <button onclick="arr_join();">ARR_JOIN</button><br><br>
+
+
+    <button onclick="arr_reverse_print();">ARR_REVERSE_PRINT</button>&nbsp;<button onclick="arr_reverse();">ARR_REVERSE</button><br><br>
+
+    <input type="text" id="sort_inputData" placeholder="오름차순(a)/내림차순(b)" />&nbsp;<button onclick="sort_result();">SORT</button><br><br>
+
+    <input type="text" id="push_inputData" placeholder="push data" /><br>
+    <button onclick="push_print();">PRINT</button>
+    <button onclick="push();">PUSH</button>
+    <button onclick="pop();">POP</button>
+    <br><br>
+
+    <input type="text" id="shift_inputData" placeholder="unshift data" /><br>
+    <button onclick="shift_print();">PRINT</button>
+    <button onclick="unshift();">UNSHIFT</button>
+    <button onclick="shift();">SHIFT</button>
+    <br><br>
+
+    <button onclick="slice();">SLICE</button>
+    <br><br>
+    
+    <button onclick="splice();">SPLICE</button>
+    <br><br>
+    
+    <button onclick="tostring();">TOSTRING</button>
+    <br><br>
+    <script>
+        function test() {
+            var arr = [10, 'a', function(data) {
+                alert(data);
+            }, true];
+            var input = document.getElementById("basic_inputData").value;
+            for (var i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+
+            arr[2](input);
+        }
+
+        //indexOf함수
+        function arr_indexOf() {
+            var fruits = ['바나나', '딸기', '복숭아', '수박'];
+            var inputData = document.getElementById("index_inputData").value;
+            var index = fruits.indexOf(inputData);
+
+            if (index >= 0) {
+                alert(index + "번째의 있습니다.");
+            } else {
+                alert("존재하지 않습니다.");
+            }
+        }
+
+        //concat함수
+        function arr_concat() {
+            var arr1 = ['사과', '딸기', '바나나'];
+            var arr2 = ['복숭아', '키위', '파인애플', '토마토'];
+            var arr3 = [10, 20, 30, 40];
+            var arr4 = [true, false];
+            var data;
+            data = arr1.concat(arr2, arr3, arr4);
+
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
+            }
+        }
+
+        //join함수
+        function arr_join() {
+            var arr1 = ['사과', '딸기', '바나나'];
+            var arr2 = ['복숭아', '키위', '파인애플', '토마토'];
+            var arr3 = [10, 20, 30, 40];
+            var arr4 = [true, false];
+            var data;
+            data = arr1.concat(arr2, arr3, arr4);
+            var result = data.join("/");
+            //join 함수의 인자값이 없을때에는 구분자로 ,(콤마) 를 사용
+            //join 함수의 인자값이 있을때에는 해당 인자값을 구분자로 사용
+            console.log(result);
+        }
+
+        //reverse함수
+        var data = ['사과', '딸기', '바나나', '복숭아', '키위', '파인애플', '토마토'];
+
+        function arr_reverse_print() {
+
+            var result = data.join("/");
+
+            console.log(result);
+        }
+
+        function arr_reverse() {
+
+            data = data.reverse();
+
+        }
+
+        //sort함수
+        function sort_result() {
+            var data = [5, 7, 10, 8, 9, 6, 2, 4, 3, 1];
+            var input = document.getElementById("sort_inputData").value;
+
+            if (input == 'a') {
+                data.sort(sortASC);
+            } else if (input == 'd') {
+                data.sort(sortDESC);
+            } else {
+                alert("잘못된 입력");
+            }
+            console.log(data);
+        }
+
+        function sortASC(data1, data2) {
+            return data1 - data2;
+        }
+
+        function sortDESC(data1, data2) {
+            return data2 - data1;
+        }
+
+        //push&pop
+        var push_arr = new Array();
+
+        function push_print() {
+            console.log(push_arr);
+        }
+
+        function push() {
+            var input = document.getElementById("push_inputData").value;
+
+            push_arr.push(input);
+            console.log(push_arr);
+        }
+
+        function pop() {
+            push_arr.pop();
+
+            console.log(push_arr.pop() + " 삭제")
+            console.log(push_arr);
+        }
+
+        //shift와 unshift
+        var shift_arr = new Array();
+
+        function shift_print() {
+            console.log(shift_arr);
+        }
+
+        function unshift() {
+            var inputData = document.getElementById("shift_inputData");
+            shift_arr.unshift(inputData.value);
+            console.log(shift_arr);
+        }
+
+        function shift() {
+            console.log(shift_arr.shift() + "를 삭제하였습니다.");
+            console.log(shift_arr);
+        }
+        
+        //slice
+        function slice() {
+            var food = ["갈비", "냉면", "국수", "돈가스", "규동", "라멘", "짜장면", "볶음밥", "된장찌개", "삼겹살", "김치찌개", "육전", "닭강정"];
+            
+            console.log(food);
+            console.log(food.slice(2));
+            console.log(food.slice(3,8));
+        }
+        
+        //splice
+        function splice() {
+            var data = [1,2,3,4,5,6,7,8,9,10]; 
+            
+            console.log(data);
+            
+            data.splice(1,2);
+            console.log(data);
+            data.splice(1,2,8);
+            console.log(data);
+        }
+        
+        function tostring(){ 
+            var data = [1, "snghyun", 25, 20151111, 1623]
+            
+            console.log(data);
+        
+            console.log(data.toString());
+        }
+    </script>
+
+
+
+</body></html>

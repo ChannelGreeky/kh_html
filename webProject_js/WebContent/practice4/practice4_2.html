@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <h1>배열 실습 문제 2</h1>
+    <p>문제4.다음 보기의 문자열을 바탕으로<br>
+        삭제할 음식과 추가할 음식을 입력받아서<br>
+        지우고,추가하는 코드를 작성하여라. (단, 1개씩 입력)<br>
+        <br>
+        예시) 삭제 : 당근 / 추가 : 타코야끼<br>
+        결과-> 피자 치킨 햄버거 떡볶이 타코야끼
+    </p>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">피자 치킨 당근 햄버거 떡볶이</label>
+    </fieldset><br>
+    <input type="text" size=25 placeholder="삭제할 음식이름을 입력하세요" id="delete_data" />
+    <input type="text" size=25 placeholder="추가할 음식이름을 입력하세요" id="insert_data" /><br>
+    <p id="answer-4" style="border:1px solid red;">이 부분에 정답이 출력될 수 있도록 하세요</p>
+    <button onclick="test4()">전송 및 처리</button>
+
+    <script>
+        var arr = document.getElementById("la1").innerHTML.split(" ");
+        function test4() {
+            
+            var delete_data = document.getElementById("delete_data").value;
+            var insert_data = document.getElementById("delete_data").value;
+            
+            console.log(arr.indexOf(delete_data));
+
+            if(delete_data != null && arr.indexOf(delete_data) >= 0){
+                arr.splice(arr.indexOf(delete_data), 1);
+            }
+            if (insert_data != null) {
+                arr.push(insert_data);
+            }
+            
+            document.getElementById("insert_data").value = "";
+            document.getElementById("delete_data").value = "";
+
+            document.getElementById("answer-4").innerHTML = arr.join(" ");
+        }
+
+    </script>
+
+
+
+</body></html>
