@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>1. 객체선언 및 사용</h3>
+        <button onclick="test();">Run</button>
+    </div>
+
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>2. in / with 키워드</h3>
+        <button onclick="test2();">Run</button>
+    </div>
+
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>3. 객체 속성 추가 및 삭제</h3>
+        <button onclick="test3();">Run</button>
+    </div>
+
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>입력 폼에 담아서 객체에 담기</h3>
+        당신의 이름은? <input id="userId" type="text" /><br>
+        당신의 나이는? <input id="userAge" type="text" /><br>
+        당신의 주소는? <input id="userAddr" type="text" /><br>
+        <button onclick="test4();">Run</button>
+    </div>
+
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>팝업창에서 폼에 담아서 객체배열에 담기</h3>
+        <button onclick="test5();">Run</button>
+        <button onclick="test5Print();">Print</button>
+    </div>
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>함수를 이용하여 객체에 담기</h3>
+        당신의 이름은? <input id="userId2" type="text" /><br>
+        당신의 나이는? <input id="userAge2" type="text" /><br>
+        당신의 주소는? <input id="userAddr2" type="text" /><br>
+        <button onclick="test6();">Run</button>
+        <button onclick="test6Print();">Print</button>
+    </div>
+    <script>
+        function test() {
+            var ob = {
+                a: 100,
+                b: 200,
+                c: function() {
+                    alert("가능합니다.");
+                }
+            };
+
+            for (var x in ob) {
+                console.log(ob[x]);
+            }
+
+            ob.c();
+        }
+
+        function test2() {
+            var ob = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500
+            };
+
+            //in 키워드는 해당 key값이 존재하는지 확인
+            console.log('c' in ob);
+
+            //with : 객체명을 생략하고 코딩할 수 있도록 해줌
+            console.log("변경전");
+            console.log(ob);
+
+            with(ob) {
+                a = 111;
+                b = 222;
+                c = 333;
+                d = 444;
+                e = 555;
+            }
+            console.log("변경후");
+            console.log(ob);
+
+        }
+
+        function test3() {
+            var ob = {
+                a: 100,
+                b: 200,
+                c: 300,
+                d: 400,
+                e: 500
+            }
+            console.log("추가 전 삭제 전");
+            console.log(ob);
+
+            ob.data = "안녕";
+            ob.print = function() {
+                alert(this.data);
+            }
+            ob.print();
+            console.log("추가 후 삭제 전");
+            console.log(ob);
+
+            console.log("추가 후 삭제 후");
+            delete(ob.a);
+            delete(ob.b);
+            delete(ob.c);
+            console.log(ob);
+        }
+
+        function test4() {
+            var id = document.getElementById("userId");
+            var age = document.getElementById("userAge");
+            var addr = document.getElementById("userAddr");
+            if (id.value == "") {
+                alert("아이디를 입력하세요");
+                id.focus();
+            } else if (age.value == "") {
+                alert("나이를 입력하세요");
+                age.focus();
+            } else if (addr.value == "") {
+                alert("주소를 입력하세요");
+                addr.focus();
+            } else {
+                var user = {
+                    id: id.value,
+                    age: age.value,
+                    addr: addr.value,
+                    data: function() {
+                        var str = "이름 : " + this.id + "\n" +
+                            "나이 : " + this.age + "\n" +
+                            "주소 : " + this.addr + "\n";
+
+                        return str;
+                    }
+                }
+
+                alert(user.data());
+                id.value = "";
+                age.value = "";
+                addr.value = "";
+            }
+        }
+        
+        var userArr = new Array();
+        function test5() {
+            var name = window.prompt("당신의 이름은?");
+            var age = window.prompt("당신의 나이는?");
+            var addr = window.prompt("당신의 주소는?");
+            
+            var obj = {
+                name:name,
+                age:age,
+                addr:addr,
+                dataGet:function(){
+                    var str = this.name+"/"+this.age+"/"+this.addr;
+                    
+                    return str;
+                }
+            }
+            
+            userArr.push(obj);
+        }
+        
+        function test5Print() {
+            for (var i=0; i < userArr.length; i++) {
+                console.log(userArr[i].dataGet());
+            }
+        }
+        
+        var test6Arr = new Array();
+        function test6() {
+            var id = document.getElementById("userId2");
+            var age = document.getElementById("userAge2");
+            var addr = document.getElementById("userAddr2");
+            if (id.value == "") {
+                alert("아이디를 입력하세요");
+                id.focus();
+            } else if (age.value == "") {
+                alert("나이를 입력하세요");
+                age.focus();
+            } else if (addr.value == "") {
+                alert("주소를 입력하세요");
+                addr.focus();
+            } else {
+                test6Arr.push(test6Create(id.value, age.value, addr.value));
+                
+
+                id.value = "";
+                age.value = "";
+                addr.value = "";
+            }
+        }
+        
+        function test6Create (id, age, addr) {
+            var obj = {id:id, age:age, addr:addr};
+            return obj;
+        }
+        
+        function test6Print (id, age, addr) {
+            console.log("유저목록")
+            for(var i=0; i<test6Arr.length; i++){
+                console.log(test6Arr[i]);
+            }
+        }
+    </script>
+</body></html>

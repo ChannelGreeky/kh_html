@@ -19,5 +19,6 @@
 ※ Bootstrap4 공식 홈페이지 : https://getbootstrap.com
 
 @ Bootstrap4 환경 설정
--> 많은 라이브러리를 사용하기 위한 설정 방법에는 download 방식과
-CDN방식 2가지가 있음
+-> 많은 라이브러리를 사용하기 위한 설정 방법에는 download 방식과 CDN(Content Delivery Network)방식 2가지가 있음
+-> download 방식은 별도의 파일을 다운로드 받아서 프로젝트 폴더에 라이브러리를 포함하는 방식
+-> CDN 방식은 <link> 태그를 이용하여 네트워크상으로 라이브러리를 제공 받는 방식

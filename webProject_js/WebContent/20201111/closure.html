@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <button onclick="closure();">클릭</button>
+    <script>
+        function incre() {
+            var count = 0;
+            
+            return function() {
+                count++;
+                alert(count + "회를 클릭하였습니다.");
+            }
+        }
+
+        var closure = incre();
+
+    </script>
+</body>
+
+</html>

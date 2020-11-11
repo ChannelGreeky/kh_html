@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+</style>
+
+<body>
+    <!-- 태그 속성에서 id값의 역할은 태그마다의 고유 식별자 역할 -->
+    <!-- 태그 속성에서 class값의 역할은 여러 태그들을 묶어서 식별하기 위한 역할 -->
+    <!-- 태그 속성에서 name값의 역할은 값을 담아서 보내는 역할 -->
+
+    <div style="padding: 10px; border : 1px solid black;">
+        <h3>1. 인코딩/디코딩 함수들</h3>
+        <input type="text" id="input" /> <br>
+        <button onclick="original();">원본</button><br><br>
+        <button onclick="encode();">encode</button>
+        <button onclick="decode();">decode</button><br><br>
+        <button onclick="encode_URI();">encodeURI</button>
+        <button onclick="decode_URI();">decodeURI</button><br><br>
+        <button onclick="encode_URI_comp();">encodeURIComponent</button>
+        <button onclick="decode_URI_comp();">decodeURIComponent</button><br><br>
+    </div>
+    <div style="padding: 10px; border : 1px solid black;">
+        <h3>2. eval함수</h3>
+        첫번째 수 : <input type="text" id="input1" /><br>
+        두번째 수 : <input type="text" id="input2" /><br>
+        <button onclick="add();">결과보기</button><br>
+        <p id="p1" style="width:200px; height:200px; border: 1px solid black;"></p>
+    </div>
+
+    <div style="padding: 10px; border : 1px solid black;">
+        <h3>3. isFinite / isNaN 함수</h3>
+        첫번째 수 : <input type="text" id="input3" /><br>
+        두번째 수 : <input type="text" id="input4" /><br>
+        <button onclick="add2();">결과보기</button>
+        <p id="p2" style="width:200px;height:200px;border:1px solid black;"></p>
+    </div>
+    <script>
+        // 1
+        function original() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            alert(url);
+        }
+
+        function encode() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            alert("인코딩값:" + escape(url));
+        }
+
+        function encode_URI() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            alert("인코딩값:" + encodeURI(url));
+        }
+
+        function encode_URI_comp() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            alert("인코딩값:" + encodeURIComponent(url));
+        }
+
+        function decode() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            var encodeData = escape(url);
+            alert("인코딩값:" + encodeData + "\n" +
+                "디코딩값:" + unescape(encodeData));
+        }
+
+        function decode_URI() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            var encodeData = encodeURI(url);
+            alert("인코딩값:" + encodeData + "\n" +
+                "디코딩값:" + decodeURI(encodeData));
+        }
+
+        function decode_URI_comp() {
+            var parameter = document.getElementById("input").value;
+            var url = "http://www.iei.or.kr?data=" + parameter;
+            var encodeData = encodeURIComponent(url);
+            alert("인코딩값:" + encodeData + "\n" +
+                "디코딩값:" + decodeURIComponent(encodeData));
+        }
+
+        // 2
+        function add() {
+            var str = "document.getElementById('input1').value" +
+                '+' + "document.getElementById('input2').value" +
+                '=' + "(parseInt(document.getElementById('input1').value))" +
+                '+' + "(parseInt(document.getElementById('input2').value))";
+        }
+
+        // 3
+        function add2(){
+           var su1 = document.getElementById("input3").value;
+           var su2 = document.getElementById("input4").value;
+           
+           if(isFinite(su1) && isFinite(su2))
+           {
+               document.getElementById("p2").innerHTML = parseInt(su1) + parseInt(su2);
+           }else{
+               document.getElementById("p2").innerHTML = "숫자를 입력해주세요";
+           }
+       }
+    </script>
+</body></html>
