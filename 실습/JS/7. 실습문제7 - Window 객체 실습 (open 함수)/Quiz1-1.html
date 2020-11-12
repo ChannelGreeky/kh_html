@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>부모 페이지</title>
+    
+   <style>
+       img{width : 100%; height : 100%;}
+       p{float : left; margin : 10px;}
+    </style>
+    
+</head>
+<body>
+    <h1>부모 페이지</h1>
+    <p style="border:1px solid red; width:200px; height : 200px;" >
+        <img src="./image/%EC%84%9C%ED%98%84%EC%A7%841.jpg" id="p1" onclick="send(this);"/>
+    </p>
+    <p style="border:1px solid red; width:200px; height : 200px;" >
+        <img src="./image/%EC%84%9C%ED%98%84%EC%A7%842.jpg" id="p2" onclick="send(this);"/>
+    </p>
+    <p style="border:1px solid red; width:200px; height : 200px;" >
+        <img src="./image/%EC%84%9C%ED%98%84%EC%A7%843.jpg" id="p3" onclick="send(this);"/>
+    </p>
+
+
+    <script>
+        var newWin = window.open("./Quiz1-2.html","_blank");
+     
+        function send(tag){
+            
+            var id = tag.id;
+            newWin.document.getElementById(id).style.display="block";
+            tag.style.display = "none";
+           
+            }
+        
+    </script>
+    
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    div {
+        margin: 100px auto;
+    }
+</style>
+
+<body>
+    <div>
+        <h3>주소 검색</h3>
+        검색 : <input type="text" id="search" />
+        <button onclick="searchResult();">완료</button>
+
+    </div>
+
+    <script>
+        function searchResult() {
+            var searchData = document.getElementById("search").value;
+            
+            opener.document.getElementById("addr").value = searchData;
+            
+            window.close();
+        }
+    </script>
+</body></html>

@@ -1,0 +1,123 @@
+@ BOM
+-> Browser Object Model의 약자로써 브라우저 객체들을 뜻함
+-> 브라우저의 정보나 URL 정보, 모니터 화면 정보등을 취득하거나 제어할 수 있는 객체
+-> 브라우저 객체의 최상위 객체는 window 객체
+-> window 객체의 하위 객체는 document, location, screen, history, navigator가 있으며
+ 계층적인 구조로 접근할 수 있음
+-> document는 DOM으로 분류 (Document Object Model)
+
+@ window 객체
+-> 자바스크립트에서 만들어지는 객체는 모두 window 객체의 하위에 존재
+-> window 객체는 브라우저 창에 대한 설정을 할  수 있는 객체
+->document, location, screen, history, navigator 등 다양한 객체를 포함하고 있으며,
+그외 유용한 함수들도 포함되어 있음
+
+@ window 객체의 다양한 함수
+open(url, name, specs, replace)	: 별도의 창을 열수 있는 함수
+setTimeout(함수, 시간(ms))		: 일정시간 후 함수를 한번 실행 / id값 리턴
+setInterval(함수, 시간(ms))		: 일정시간마다 함수를 반복 실행 / id값 리턴
+clearTimeout(id)			: setTimeout() 함수 실행 종료
+clearInterval(id)			: setInterval() 함수 종료
+
+## window.open 함수와 opener 객체 ##
+# open 함수
+-> 높이와 너비를 입력하면 별도의 창으로 페이지를 오픈
+	( 높이와 너비를 입력하지 않아도 자동 기본 사이즈로 오픈 됨 )
+
+# opener 객체
+-> 자신을 열은 부모의 window 창을 표현할 때 사용
+
+open(url, name, specs, replace)
+
+첫번째 인수값 : "주소" ( 오픈될 URL 주소 )
+두번째 인수값 : "열릴 경로"
+	- _blank	: 새탭(기본값)
+	- _parent	: 부모 프레임
+	- _self	: 현재 페이지
+세번째 인수값 : "형태"
+	-height = 값(px)		: 높이 지정
+	-width = 값(px)		: 너비 지정
+	-menubar = yes | no | 1 | 0	: 메뉴바 사용 여부 지정
+	-status = yes | no | 1 | 0	: 상태바 사용 여부 지정
+※ 형태의 인수값은 다양한 형태가 존재하지만 높이와 너비를 제외하고는 브라우저의 종류마다 지원여부가 너무 다름
+(즉, 지원을 안하는 경우가 많을 수 있음)
+네번째 인수값 : "히스토리 목록"
+	- true		: 현재 히스토리를 대체
+	- false		: 히스토리에 새 항목을 만듦
+※ 인수값을 줄 떄에는 문자열 형태를 써주어야 함
+
+@ setTimeout(함수, 시간(ms)) 함수 예제
+-> 일정 시간 이후 함수를 한번 실행
+
+@ setInterval (함수, 시간(ms))
+-> 일정 시간마다 정의된 함수를 계속 반복하는 함수
+
+@ window.onload 속성
+-> 해당 브라우저의 페이지가 모두 로드 되면 onload에 설정되어 있는 함수를 실행 시키는 속성
+※ 페이지가 모두 로드 되면?
+	-> 화면상의 모든 태그와 스타일시트, script 부분의 코드를 읽고 온 뒤
+
+사용법
+window.onload = function(){
+	로직구성
+};
+
+@ screen 객체
+-> client 운영체제 화면에 대한 속성값을 가지는 객체
+
+height		화면 높이
+width 		화면 너비
+availWidth	실제 화면에서 사용 가능한 너비
+availHeight	실제 화면에서 사용 가능한 높이
+colorDepth	사용 가능한 색상 수
+pixelDepth	한 픽셀당 비트 수
+
+@ loacation 객체
+-> 브라우저의 주소 표시줄(URL)과 관련된 객체
+-> 프로토콜 종류, 호스트 이름, 문서 위치 등의 정보를 가짐
+
+## location 객체의 속성
+hash		앵커 이름(#~)
+		-> 표시된 마크로 이동 (<a href="#.."> 와 동일하게 사용 가능
+		-> <a name="이름"> 으로 마크를 표시하고 location.hash="이름" 으로
+		이동 가능
+
+host		호스트 이름과 포트 번호
+hostname	호스트 이름
+href		문서 URL 주소
+origin		호스트 이름, 프로토콜, 포트번호
+pathname	디렉토리 경로
+port		포트번호
+protocol		프로토콜 종류
+search		요청 매개변수 (ex. iei.or.kr/index.html?name="홍길동"&age="20")
+
+## location 객체의 메소드
+assign('주소')		새로운 페이지 로드 (뒤로 가기 가능)
+			- history 보존
+replace('주소')		현재 페이지를 새 페이지로 교체 (뒤로 가기 불가)
+			- history를 삭제하고 새로 만듦
+			-> 즉, 내가 네이버에서 replace('주소')를 통해 다른 페이지로 갓으면 
+			히스토리에서 네이버는 삭제됨
+reload()			-현재 문서를 다시 로드(새로고침)
+
+
+@ navigator 객체
+-> 브라우저에 대한 위치정보 값이나 브라우저에 대한 정보를 가지는 객체
+
+appCodeName	: 브라우저 코드명
+	-> 최신 브라우저의 대부분은 호환성을 이유로 "Mozilla"라고 저장
+	-> 보통의 브라우저들은 옛날 Mozilla로부터 파생된 경우가 많아
+	Mozilla 라고 표현
+
+appName		: 브라우저 이름
+	-> FireFox나 Chrome, Safari, IE의 경우 Netscape로 출력
+
+appVersion	: 브라우저 버전
+platform		: 사용중인 운영체제
+userAgent	: 브라우저 전체 정보 (appCodeName+appVersion)
+cookieEnabled	: 쿠키 활성화 여부
+geolocation	: 위도와 경도를 출력
+language		: 브라우저 언어
+product		: 브라우저 엔진 이름
+	-> product : Gecko라고 표시 됨
+	(대부분의 브라우저는 Mozilla 프로젝트에서 개발한 레이아웃 엔진을 사용함 -> Gecko)

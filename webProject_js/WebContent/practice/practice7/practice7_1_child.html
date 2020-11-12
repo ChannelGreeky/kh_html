@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>자식페이지</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        float: left;
+        margin: 20px;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+</style>
+
+<body>
+
+    <h1>자식 페이지</h1>
+    <div>
+        <img src="../../common/image/%EC%84%9C%ED%98%84%EC%A7%841.jpg" id="img1" onclick="send(this);" />
+    </div>
+    <div>
+        <img src="../../common/image/%EC%84%9C%ED%98%84%EC%A7%842.jpg" id="img2" onclick="send(this);" />
+    </div>
+    <div>
+        <img src="../../common/image/%EC%84%9C%ED%98%84%EC%A7%843.jpg" id="img3" onclick="send(this);" />
+    </div>
+
+
+    <script>
+        function send(obj) {
+            obj.style.display = "none";
+            opener.document.getElementById(obj.id).style.display="block";
+        }
+    </script>
+</body></html>

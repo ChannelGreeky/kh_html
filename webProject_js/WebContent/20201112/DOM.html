@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    #div1 {
+        border: 1px solid black;
+    }
+
+</style>
+
+<body>
+    <div id="div1">
+        <p>p 태그 입니다.</p>
+    </div>
+
+    <input type="text" id="input1" />
+    <button onclick="input();">입력</button>
+    <script>
+        function input() {
+            var div1 = document.getElementById("div1");
+            var inputData = document.getElementById("input1");
+            
+//            div1.innerHTML = div1.innerHTML + "<p>" + inputData + "</p>";
+            var element = document.createElement('p');
+            var text = document.createTextNode(inputData.value);
+            
+            element.appendChild(text);
+            
+            div1.appendChild(element);
+            
+            inputData.value = "";
+        }
+
+    </script>
+</body>
+
+</html>

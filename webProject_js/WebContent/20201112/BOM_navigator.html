@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    #print {
+        border: 1px solid black;
+        width: 300px;
+        height: 200px;
+    }
+
+    #watch {
+        border: 1px solid black;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #timer {
+        border: 1px solid black;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #screenPrint {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+    }
+
+</style>
+
+<body>
+    <div style="padding:20px; border : 1px solid black;">
+        <button onclick="btn1();">지도찾기</button>
+    </div>
+
+    <script>
+        var latitude;
+        var longitude;
+
+        window.onload = function() {
+            navigator.geolocation.getCurrentPosition(showYourLocation);
+        }
+
+        function showYourLocation(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+        }
+
+        function btn1() {
+            console.log("위도 : " + latitude);
+            console.log("위도 : " + longitude);
+            window.open("https://www.google.co.kr/maps/@"+latitude+","+longitude+",17z")
+        }
+
+    </script>
+</body>
+
+</html>

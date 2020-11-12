@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    #print {
+        border: 1px solid black;
+        width: 300px;
+        height: 200px;
+    }
+
+    #watch {
+        border: 1px solid black;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+    
+    #timer {
+        border: 1px solid black;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+    }
+    
+    #screenPrint {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+    }
+    
+</style>
+
+<body>
+    <a name="top" /><button onclick="move('bottom')">아래로</button>
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>1. window.open / close 함수</h3>
+        버튼을 누르면 kh홈페이지 새로운 브라우저 오픈<br><br>
+        <button onclick="winOpen();">Open</button>
+        <button onclick="winClose();">Close</button>
+    </div>
+
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>2. open 브라우저에 데이터 보내기</h3>
+        <input type="text" id="input1" />
+        <button onclick="winSend();">전송</button>
+        <button onclick="winOpen();">Open</button>
+        <button onclick="winClose();">Close</button>
+    </div>
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>3. 주소검색창 만들기 (자식 페이지에서 부모 페이지로 데이터전송)</h3>
+        주소 : <input type="text" id="addr" />
+        <button onclick="addressSearch();">주소검색</button>
+    </div>
+
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>4. setTimeout() / setInterval() 함수</h3>
+        <p id="print"></p>
+        <button onclick="timeout()">Timeout 실행</button>
+        <button onclick="timeoutStop()">Timeout 종료</button><br><br>
+        <button onclick="interval()">Interval 실행</button>
+        <button onclick="intervalStop()">Interval 종료</button>
+    </div>
+
+    <div style="height:300px; padding:20px; border : 1px solid black;">
+        <h3>4-1. Interval 함수 이용하여 시계만들기</h3>
+        <p id="watch"></p>
+        <button onclick="watchStart()">시작</button>
+        <button onclick="watchStop()">종료</button>
+    </div>
+
+    <div style="height:auto; padding:20px; border : 1px solid black;">
+        <h3>4-2. Interval 함수 이용하여 timer만들기</h3>
+        <p id="timer">00:00</p><p id="record"></p>
+        <button onclick="timerStart()">시작</button>
+        <button onclick="timerRecord()">기록</button>
+        <button onclick="timerStop()">정지</button>
+        <button onclick="timerInit()">초기화</button>
+    </div>
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>5. window.onload </h3>
+        <p id="p1"> ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ</p>
+    </div>
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>6. Screen 객체</h3>
+        <p id="screenPrint"></p>
+        <button onclick="load()">Screen Info</button>
+    </div>
+    
+    <a name="bottom" /><button onclick="move('top')">위로</button>
+    
+    <div style="padding:20px; border : 1px solid black;">
+        <h3>7. location.reload()/asign() 함수</h3>
+        <p id="loadPrint"></p>
+        <button onclick="btn1()">reload</button><br><br>
+        <input type="text" id="site" />
+        <button onclick="btn2()">asign버튼</button>
+        <button onclick="btn3()">replace버튼</button>
+    </div>
+    <script>
+        // 1
+        var newWin;
+
+        function winOpen() {
+            newWin = window.open("./BOM2.html", "_blank", "width=1000px, height=1000px, menubar=1, status=1");
+        }
+
+        function winClose() {
+            newWin.close();
+        }
+        
+        // 2
+        function winSend() {
+            var message = window.document.getElementById("input1").value + "<br>";
+            newWin.document.getElementById("print").innerHTML += message;
+            window.document.getElementById("input1").value = "";
+        }
+        
+        // 3
+        var addrWin;
+
+        function addressSearch() {
+            addrWin = window.open("./BOM_addr.html", "_blank", "width=400px, height=400px");
+        }
+        
+        // 4
+        var timeout;
+        var interval;
+
+        function timeout() {
+            var print = document.getElementById("print");
+            timeout = window.setTimeout(function() {
+                print.innerHTML += "동작하였습니다.<br>";
+            }, 1 * 1000);
+        }
+
+        function interval() {
+            var print = document.getElementById("print");
+            interval = window.setTimeout(function() {
+                print.innerHTML += "동작하였습니다.<br>";
+            }, 1 * 1000);
+        }
+
+        function timeoutStop() {
+            alert("setTimeout 동작이 취소되었습니다.")
+            window.clearTimeout(timeout);
+        }
+
+        function intervalStop() {
+            alert("setTimeout 동작이 취소되었습니다.")
+            window.clearInterval(interval);
+        }
+        
+        // 4_1
+        var watchTime;
+        
+        function watchStart() {
+            var watch = document.getElementById("watch");
+
+            watchTime = window.setInterval(function() {
+                var date = new Date();
+                hour = date.getHours();
+                minute = date.getMinutes();
+                second = date.getSeconds();
+                mssecond = date.getMilliseconds();
+                watch.innerHTML = hour+":"+minute+":"+second + ":" + mssecond;
+            }, 1);
+        }
+
+        function watchStop() {
+            window.clearInterval(watchTime);
+        }
+        
+        
+        //4_2
+        var lank = 0;
+        var count = 0;
+        var mscount = 0;
+        var timerTime;
+        function timerStart() {
+            var timer = document.getElementById("timer");
+
+            timerTime = window.setInterval(function() {
+                mscount += 1;
+                timer.innerHTML = count + ":" + mscount;
+                if(mscount >= 99){
+                    count +=1;
+                    mscount = 0;
+                }
+            }, 10);
+            
+
+        }
+
+        function timerStop() {
+            window.clearInterval(timerTime);
+            
+        }
+        
+        function timerRecord () {
+            lank+=1;
+            var record = document.getElementById("record");
+            record.innerHTML += lank + ". " + count+":"+mscount + "<br>";
+            
+        }
+        
+        function timerInit() {
+            var timer = document.getElementById("timer");
+            var record = document.getElementById("record");
+            timer.innerHTML = "00:00";
+            record.innerHTML = "";
+            lank=0;
+            count = 0;
+            mscount = 0;
+        }
+        
+        function load() {
+            var screen = document.getElementById("screenPrint");
+            
+            var str;
+            str = "화면 높이값 : " + window.screen.height + "<br>";
+            str += "화면 너비값 : " + window.screen.width + "<br>";
+            str += "실사용 높이값 : " + window.screen.availHeight + "<br>";
+            str += "실사용 높이값 : " + window.screen.availWidth + "<br>";
+            str += "사용가능한 색상 수 : " + window.screen.colorDepth + "<br>";
+            str += "한 픽셀당 비트 수 : " + window.screen.pixelDepth + "<br>";
+            
+            screen.innerHTML = str;
+        }
+        
+        function move(hash) {
+            location.hash = hash;
+        }
+        
+//        window.onload = function () {
+//            var p1 = document.getElementById("p1").innerHTML;
+//            alert(p1);
+//        }
+        
+        window.onload = function() {
+            var id = document.getElementById("loadPrint");
+            var date = new Date();
+            id.innerHTML = 
+                date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+        
+        function btn1() {
+            location.reload();
+        }
+        
+        function btn2() {
+            var site = document.getElementById("site");
+            location.assign(site.value);
+        }
+        
+        function btn3() {
+            var site = document.getElementById("site");
+            location.replace(site.value);
+        }
+        
+    </script>
+</body></html>
