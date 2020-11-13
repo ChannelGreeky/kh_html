@@ -14,11 +14,20 @@
 
 <body>
     <div id="div1">
+        <h2>요소 및 텍스트노드 추가</h2>
         <p>p 태그 입니다.</p>
     </div>
 
     <input type="text" id="input1" />
     <button onclick="input();">입력</button>
+    <br><br><br>
+    <div id="div2" style="border:1px solid black">
+        <h2>요소 및 요소 속성 추가 / 제거</h2>
+        <h4>이미지 클릭시 이미지 제거</h4>
+    </div>
+    <button onclick="imgCreate()">이미지생성</button>
+    <button onclick="imgDelete()">첫번째 자식 노드제거</button>
+    <button onclick="imgDeleteAll()">전체삭제</button>
     <script>
         function input() {
             var div1 = document.getElementById("div1");
@@ -34,7 +43,35 @@
             
             inputData.value = "";
         }
-
+        
+        function imgCreate() {
+            var div2 = document.getElementById("div2");
+            
+            var img = document.createElement('img');
+            img.src= "../common/image/jj.jpg";
+            img.width = "250";
+            img.height = "250";
+            img.setAttribute("onclick", "imgDelete2(this);");
+            div2.appendChild(img);
+        }
+        
+        function imgDelete() {
+            var div2 = document.getElementById("div2");
+            
+            div2.removeChild(div2.firstChild);
+        }
+        
+        function imgDeleteAll() {
+            var div2 = document.getElementById("div2");
+            
+            while(div2.hasChildNodes()){
+                div2.removeChild(div2.firstChild);   
+            }
+        }
+        
+        function imgDelete2(element) {
+            element.remove();
+        }
     </script>
 </body>
 

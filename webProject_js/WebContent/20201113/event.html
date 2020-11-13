@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    div {
+        border: 1px solid black;
+    }
+    .div-test {
+        border: 1px solid black;
+        padding: 20px;
+    }
+    
+    .div1 {
+        background-color: red;
+    }
+    
+    .div2 {
+        background-color: orange;
+    }
+    
+    .div3 {
+        background-color: yellow;
+    }
+    
+    .div4 {
+        background-color: green;
+    }
+</style>
+
+<body>
+    <div>
+        <h2>1. 인라인 이벤트 모델</h2>
+        <button id="btn" onclick="test();">Button</button>
+        <br><br>
+    </div>
+
+    <div>
+        <h2>2. 고전 이벤트 모델</h2>
+        <button id="btn2">Button</button>
+        <br><br>
+    </div>
+
+    <div>
+        <h2>2. 고전 이벤트 모델2</h2>
+        <button id="btn3">Button</button>
+        <br><br>
+    </div>
+
+    <div>
+        <h2>3. 표준 이벤트 모델 addEventListner</h2>
+        <button id="btn4">Button</button>
+        <br><br>
+    </div>
+
+    <div>
+        <h2>4. 이벤트 버블링 막기</h2>
+        <div onclick="test1('빨강')" class="div-test div1">
+            <div onclick="test1('주황')" class="div-test div2">
+                <div onclick="test1('노랑')" class="div-test div3">
+                    <div onclick="test1('초록')" class="div-test div4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1
+        function test() {
+            alert("인라인 이벤트 모델");
+        }
+
+        // 2
+        var btn = document.getElementById("btn2");
+        btn.onclick = function() {
+            alert("고전 이벤트 모델");
+        }
+
+        var btn2 = document.getElementById("btn3");
+        btn2.onclick = function() {
+            alert("고전 이벤트 모델");
+            btn2.onclick = function() {
+                alert("두번째두번쨰");
+            }
+        }
+        
+        //3
+        var btn3 = document.getElementById("btn4");
+        btn3.addEventListener('click', function() {
+            alert("표준 이벤트 모델");
+        });
+        btn3.addEventListener('mouseenter', function() {
+            btn3.style.color = "red";
+        });
+        btn3.removeEventListener('mouseenter');
+        
+        function test1(msg) {
+            alert(msg);
+            //window.event.stopPropagation(); //버블링 막는 함수
+            window.event.cancelBubble = true; //버블링을 막는 속성 (IE)
+        }
+    </script>
+</body></html>

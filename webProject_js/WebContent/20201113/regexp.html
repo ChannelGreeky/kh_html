@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div style="border:1px solid black; padding:20px;">
+        <h2>정규표현식</h2>
+        
+        <h4>1. a가 포함된 문자열 검증</h4>
+        id : <input type="text" id="userId" />
+        <button onclick="check();">체크</button><br>
+        
+        <h4>2. a로 시작해야 하는 문자열 검증</h4>
+        id : <input type="text" id="userId2" />
+        <button onclick="check2();">체크</button><br>
+        
+        <h4>3. a또는 b가 포함된 문자열 검증</h4>
+        id : <input type="text" id="userId3" />
+        <button onclick="check3();">체크</button><br>
+        
+        <h4>4. a또는 b로 시작해야 하는 문자열 검증</h4>
+        id : <input type="text" id="userId4" />
+        <button onclick="check4();">체크</button><br>
+        
+        <h4>5. a로 끝나야 하는 문자열 검증</h4>
+        id : <input type="text" id="userId5" />
+        <button onclick="check5();">체크</button><br>
+        
+        <h4>6. a로 시작하고 b로 끝나야 하는 문자열 검증<br>(.+ 는 1글자 이상 , .*는 0글자 이상)</h4>
+        id : <input type="text" id="userId6" />
+        <button onclick="check6();">체크</button><br>
+        
+        <h4>7. 숫자만 입력해야 하는 경우</h4>
+        id : <input type="text" id="userId7" />
+        <button onclick="check7();">체크</button><br>
+        
+        <h4>8. 영어 대문자, 소문자만 입력해야 하는 경우</h4>
+        id : <input type="text" id="userId8" />
+        <button onclick="check8();">체크</button><br>
+        
+        <h4>9. 영어 대문자, 소문자로 시작하고 대문자, 소문자, 숫자만 입력해야 하는 경우</h4>
+        id : <input type="text" id="userId9" />
+        <button onclick="check9();">체크</button><br>
+        
+        <h4>10. 한글만 입력해야 하는 경우<br>(자음과 모음이 합쳐진 글자여야 함 자음만 또는 모음만 안됨)</h4>
+        id : <input type="text" id="userId10" />
+        <button onclick="check10();">체크</button><br>
+        
+        <h4>11. 한글만 입력해야 하는 경우<br>(자음만 또는 모음만 입력해도 가능)</h4>
+        id : <input type="text" id="userId10" />
+        <button onclick="check10();">체크</button><br>
+    </div>
+    <script>
+        function check() {
+            var userId = document.getElementById("userId").value;
+            var exp = /a/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check2() {
+            var userId = document.getElementById("userId2").value;
+            var exp = /^a/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check3() {
+            var userId = document.getElementById("userId3").value;
+            var exp = /[ab]/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check4() {
+            var userId = document.getElementById("userId4").value;
+            var exp = /^[ab]/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check5() {
+            var userId = document.getElementById("userId5").value;
+            var exp = /a$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check6() {
+            var userId = document.getElementById("userId6").value;
+            var exp = /^a.+b$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check7() {
+            var userId = document.getElementById("userId7").value;
+            var exp = /^[0-9]+$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check8() {
+            var userId = document.getElementById("userId8").value;
+            var exp = /^[a-zA-Z]+$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check9() {
+            var userId = document.getElementById("userId9").value;
+            var exp = /^[a-zA-Z][a-zA-Z0-9]+$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check10() {
+            var userId = document.getElementById("userId9").value;
+            var exp = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check11() {
+            
+        }
+    </script>
+</body></html>

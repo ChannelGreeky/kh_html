@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+    
+    table, td, th {
+        text-align: center;
+        margin: auto;
+        border: 1px solid black;
+    }
+    #div1 {
+        border: 1px solid black;
+    }
+
+</style>
+
+<body>
+   
+    <p>문제1. 추가 버튼을 클릭하면 이름, 나이, 주소를 입력받은 후 테이블에 추가하도록 하여라.</p>
+    <table id="info">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+            <th>상태</th>
+        </tr>
+    </table>
+    <button onclick="insertAnswer()">추가</button>
+    <script>
+        function insert() {
+            var infoArr = new Array();
+            var table = document.getElementById("info");
+            var name = document.createTextNode(window.prompt("이름입력"));
+            var age = document.createTextNode(window.prompt("나이입력"));
+            var addr = document.createTextNode(window.prompt("주소입력"));
+            
+            var row = document.createElement('tr');
+            var colName = document.createElement('td');
+            var colAge = document.createElement('td');
+            var colAddr = document.createElement('td');
+            
+            colName.appendChild(name);
+            colAge.appendChild(age);
+            colAddr.appendChild(addr);
+            
+            row.appendChild(colName);
+            row.appendChild(colAge);
+            row.appendChild(colAddr);
+            
+            table.appendChild(row);
+            
+            
+        }
+        
+        function insert2() {
+            var infoArr = new Array();
+            var colArr = new Array();
+            var table = document.getElementById("info");
+            infoArr[0] = document.createTextNode(window.prompt("이름입력"));
+            infoArr[1] = document.createTextNode(window.prompt("나이입력"));
+            infoArr[2] = document.createTextNode(window.prompt("주소입력"));
+            
+            var row = document.createElement('tr');
+            var deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute("onclick", "remove(this)");
+            deleteBtn.innerHTML = "삭제";
+            
+            for(var i=0; i<infoArr.length; i++){
+                colArr[i] = document.createElement('td');
+                colArr[i].appendChild(infoArr[i]);
+                row.appendChild(colArr[i]);
+            }
+            colArr[3] = document.createElement('td');
+            colArr[3].appendChild(deleteBtn);
+            row.appendChild(colArr[3]);
+            
+            table.appendChild(row);
+        }
+        
+        
+        var idCount = 0;
+        function insertAnswer() {
+            var infoArr = new Array();
+            var colArr = new Array();
+            var table = document.getElementById("info");
+            infoArr[0] = document.createTextNode(window.prompt("이름입력"));
+            infoArr[1] = document.createTextNode(window.prompt("나이입력"));
+            infoArr[2] = document.createTextNode(window.prompt("주소입력"));
+            
+            var row = document.createElement('tr');
+            row.setAttribute("id", ++idCount);
+            
+            var deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute("onclick", "removeAnswer("+idCount+")");
+            deleteBtn.innerHTML = "삭제";
+            
+            for(var i=0; i<infoArr.length; i++){
+                colArr[i] = document.createElement('td');
+                colArr[i].appendChild(infoArr[i]);
+                row.appendChild(colArr[i]);
+            }
+            colArr[3] = document.createElement('td');
+            colArr[3].appendChild(deleteBtn);
+            row.appendChild(colArr[3]);
+            
+            table.appendChild(row);
+        }
+        
+        function remove(element) {
+            var deleteCol = element.parentNode;
+            var deleteRow = deleteCol.parentNode;
+            deleteRow.remove();
+        }
+        
+        function removeAnswer(id) {
+            var deleteRow = document.getElementById(id);
+            deleteRow.remove();
+        }
+        
+    </script>
+</body>
+
+</html>
