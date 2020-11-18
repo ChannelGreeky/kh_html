@@ -52,10 +52,33 @@
         <h4>10. 한글만 입력해야 하는 경우<br>(자음과 모음이 합쳐진 글자여야 함 자음만 또는 모음만 안됨)</h4>
         id : <input type="text" id="userId10" />
         <button onclick="check10();">체크</button><br>
+    
+        <h4>11. 영문자, 숫자만 포함하여 3~5글자 사이에 입력해야하는 경우</h4>
+        id : <input type="text" id="userId11" />
+        <button onclick="check11();">체크</button><br>
         
-        <h4>11. 한글만 입력해야 하는 경우<br>(자음만 또는 모음만 입력해도 가능)</h4>
-        id : <input type="text" id="userId10" />
-        <button onclick="check10();">체크</button><br>
+        <h4>12. 특수문자만 입력해야 하는 경우</h4>
+        id : <input type="text" id="userId12" />
+        <button onclick="check12();">체크</button><br>
+        
+        <h4>13.비밀번호란에 특수문자, 숫자, 알파벳 조합으로 8~10글자를 입력해야 하고<br> 특수문자, 숫자, 알파벳이 무조건 1문자 이상씩 들어가야 하는 경우</h4>
+        <form action="./login.do" method="post" onsubmit="return check13();">
+        PW : <input type="text" id="userId13" />
+        <input type="submit" value="로그인"><br>
+        </form>
+        
+        <h4>14.replace() 메소드</h4>
+        <div id="testText" style="width:400px; height:200px; border:1px solid black;">
+            Hello!! 저는 jane 입니다. 
+            제 전화번호는 010-1112-3342 입니다.
+        </div>
+        <div id="printText" style="width:400px; height:200px; border:1px solid black;"></div>
+        <button onclick="check14();">체크</button><br>
+        
+        
+        <h4>15.exec() 메소드</h4>
+        <button onclick="check15();">체크</button><br>
+        
     </div>
     <script>
         function check() {
@@ -149,7 +172,7 @@
         }
         
         function check10() {
-            var userId = document.getElementById("userId9").value;
+            var userId = document.getElementById("userId10").value;
             var exp = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
             if(exp.test(userId)) {
                 alert("검증되었습니다.");
@@ -159,7 +182,67 @@
         }
         
         function check11() {
+            var userId = document.getElementById("userId11").value;
+            var exp = /^[a-zA-z0-9]{3,5}$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check12() {
+            var userId = document.getElementById("userId11").value;
+            var exp = /^[`~!@#$%^&*(),.?":;{}<>/]+$/;
+            if(exp.test(userId)) {
+                alert("검증되었습니다.");
+            } else {
+                alert("정규표현식에 어긋납니다.");
+            }
+        }
+        
+        function check13() {
+            var userId = document.getElementById("userId13").value;
+            var number = userId.search(/[0-9]/);
+            var alpha = userId.search(/[a-zA-Z]/);
+            var special = userId.search(/[!@#$%^&*()]/);
             
+            console.log("숫자값 : "+number);
+            console.log("알파벳값 : "+alpha);
+            console.log("특수문자 : "+special);
+            var exp = /^[a-zA-Z0-9!@#$%^&*()~]{8,10}$/;
+            if(userId==""){
+                alert("비밀번호를 입력해주세요");
+                return false;
+            } else if(!exp.test(userId)) {
+                alert("특수문자, 숫자, 알파벳 조합으로 8~10글자여야 합니다.")
+                return false;
+            } else if (number == -1 || alpha == -1 || special == -1) {
+                alert("특수문자, 숫자, 알파벳은 필수 입력요소입니다.");
+                return false;
+            }
+            else {
+                alert("검증실패");
+                return false;
+            }
+        }
+        
+        function check14() {
+            var value = document.getElementById("testText").innerHTML;
+            var result = value.replace(/[가-힣]/gi,'');
+            
+            document.getElementById("printText").innerHTML = result;
+        }
+        
+        function check15() {
+            var str = "<p>Hello</p><p>World</p><p>Mslove</p>";
+            var exp= /<p>(.+?)<.+<p>(.+?)<.+/i;
+            var result = exp.exec(str);
+            
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(result[2]);
+            console.log(result[3]);
         }
     </script>
 </body></html>

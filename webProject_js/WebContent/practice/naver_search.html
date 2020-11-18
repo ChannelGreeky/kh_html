@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    
+</head>
+<body>
+    
+<script>
+    function check(){
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+    if (request.readyState == 4 && request.status == 200) {
+        
+        var html = request.responseText;
+        
+        var str = html.replace(/"/g,''); // " 제거 작업
+        
+        
+        var arr = str.split("\n");
+        //console.log(arr);
+        
+     
+        
+        //검색어 정규표현식
+        var reg = /.+?class=item_title>(.+?)</;  //정규표현식
+        var count = 1;
+        
+        var print = document.getElementById("print");
+        
+        var date = new Date();
+        
+        print.innerHTML = "<H4>"+date.getFullYear()+"년 "+(date.getMonth()+1)+"월 "+date.getDate()+"일 " +
+                          date.getHours() + "시 " + date.getMinutes() + "분 " + date.getSeconds()+"초 <br> 네이버 실시간 검색어"  +"</H4>";
+        
+        
+        for(var i=0;i<arr.length;i++){
+            
+            if(/<span class=item_title>/.test(arr[i]))
+            {
+            var result = reg.exec(arr[i]);
+            //console.log(count+"위 " +result[1]);    
+            print.innerHTML += count+"위 " +result[1] + "<br>";
+            count++;
+            }
+        }
+        
+        
+        
+    
+        }
+	}
+	request.open("GET", "https://datalab.naver.com/keyword/realtimeList.naver?age=all&entertainment=-1&groupingLevel=1&marketing=-1&news=-1&sports=-1&where=main");
+	request.send();
+}
+</script>
+
+<p id=print style="width : 400px; height : 600px; border:1px solid red;">
+</p>
+
+<button onclick="check();">네이버 실시간 검색어 가져오기</button>
+    
+</body>
+</html>
+
+
+
+
+
+
+※ 코드가 정상적으로 동작하려면 크롬에서는
+https://chrome.google.com/webstore/  가서 
+Allow-Control-Allow-Origin 를 확장프로그램으로 설치해주세요 
+-> 설치하면 브라우저 상단에 확장프로그램을 키고,
+C 어쩌구 되어있는 마크를 클릭해서 색깔이 바뀌어야 함 (2020년 버전)
+
+
+※ 현재 위에 코드는 2020년 11월 버전임 - 브라우저 코드가 바뀔때마다 정상 작동 안함
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
